@@ -3,16 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Admin</title>
+    <title>Auth</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
+      .box { opacity:.8; }
+    </style>
   </head>
-
   <body>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <div class="box">Connexion en cours…</div>
 
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       window.addEventListener("load", function () {
-        if (!window.netlifyIdentity) return;
+        if (!window.netlifyIdentity) {
+          document.body.textContent = "Netlify Identity indisponible.";
+          return;
+        }
 
+        // Si on arrive ici avec un token (#recovery_token / #invite_token / etc),
+        // on ouvre le widget. Le widget lit le hash tout seul.
         window.netlifyIdentity.on("init", function () {
           const hash = window.location.hash || "";
           const hasToken =
@@ -20,17 +29,23 @@
             hash.includes("recovery_token=") ||
             hash.includes("confirmation_token=");
 
-          if (hasToken) {
-            window.netlifyIdentity.open();
-          }
+          // Ouvre l'UI Identity (il consommera le token du hash)
+          if (hasToken) window.netlifyIdentity.open();
+
+          // Si pas de token, on ouvre quand même (ça permet login normal)
+          if (!hasToken) window.netlifyIdentity.open();
         });
 
+        // Une fois loggé → go admin
         window.netlifyIdentity.on("login", function () {
-          document.location.href = "/admin/";
+          window.location.href = "/admin/";
+        });
+
+        // Au cas où le user est déjà loggué
+        window.netlifyIdentity.on("logout", function () {
+          window.netlifyIdentity.open();
         });
       });
     </script>
-
-    <script defer src="https://unpkg.com/decap-cms@3.10.0/dist/decap-cms.js"></script>
   </body>
 </html>
