@@ -18,3 +18,10 @@ pas d'interface en francais
 
 
 Bref faudrait un truc en francais, et d'avantage friendly pour les non tech que re-router sur /admin avec le token mdr 
+
+
+edit : 
+en fait c vraiment pas mal decap cms.
+la manip ou tu re routes à la main avec le token tu dois le faire que pour activer le compte, ensuite le gars peut se log direct avec son mail/mdp choisi
+
+par contre va falloir git pull souvent car si j'écris sur l'interface /admin ca git push mdr, moyen de foutre la merde là
