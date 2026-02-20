@@ -1,12 +1,12 @@
 {
-  "kicker": "TEST CMS",
-  "title": "Bistrot de l’Étoile",
-  "subtitle": "Cuisine de saison, vins vivants, ambiance bistrot.",
+  "bgAlt": "Intérieur du restaurant",
   "primaryCtaLabel": "Réserver",
-  "primaryCtaHref": "/reserver",
-  "secondaryCtaLabel": "Voir la carte",
   "secondaryCtaHref": "/menu",
   "note": "Déjeuner & dîner · Produits frais · Options végétariennes",
+  "kicker": "TEST CMS",
   "bgImage": "/images/landing-resto-fake.webp",
-  "bgAlt": "Intérieur du restaurant"
+  "subtitle": "Cuisine de saison, vins vivants, ambiance bistrot.",
+  "secondaryCtaLabel": "Voir la carte",
+  "title": "Bistrot de l’Étoile 2",
+  "primaryCtaHref": "/reserver"
 }
