@@ -7,25 +7,30 @@
   </head>
 
   <body>
-    <!-- Netlify Identity widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- Auto redirect after login -->
     <script>
       window.addEventListener("load", function () {
-        if (window.netlifyIdentity) {
-          window.netlifyIdentity.on("init", function (user) {
-            if (!user) {
-              window.netlifyIdentity.on("login", function () {
-                document.location.href = "/admin/";
-              });
-            }
-          });
-        }
+        if (!window.netlifyIdentity) return;
+
+        window.netlifyIdentity.on("init", function () {
+          const hash = window.location.hash || "";
+          const hasToken =
+            hash.includes("invite_token=") ||
+            hash.includes("recovery_token=") ||
+            hash.includes("confirmation_token=");
+
+          if (hasToken) {
+            window.netlifyIdentity.open();
+          }
+        });
+
+        window.netlifyIdentity.on("login", function () {
+          document.location.href = "/admin/";
+        });
       });
     </script>
 
-    <!-- Decap CMS (load last) -->
     <script defer src="https://unpkg.com/decap-cms@3.10.0/dist/decap-cms.js"></script>
   </body>
 </html>
