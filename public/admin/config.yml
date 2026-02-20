@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "hero"
+        label: "Hero"
+        file: "content/hero.json"
+        format: "json"
+        fields:
+          - { label: "Kicker", name: "kicker", widget: "string", required: false }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+          - { label: "CTA principal (label)", name: "primaryCtaLabel", widget: "string" }
+          - { label: "CTA principal (href)", name: "primaryCtaHref", widget: "string" }
+          - { label: "CTA secondaire (label)", name: "secondaryCtaLabel", widget: "string", required: false }
+          - { label: "CTA secondaire (href)", name: "secondaryCtaHref", widget: "string", required: false }
+          - { label: "Note", name: "note", widget: "string", required: false }
+          - { label: "Image de fond", name: "bgImage", widget: "image", required: false }
+          - { label: "Alt image", name: "bgAlt", widget: "string", required: false }
