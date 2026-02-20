@@ -15,3 +15,6 @@ assez complet
 
 désavantages decap cms :
 pas d'interface en francais
+
+
+Bref faudrait un truc en francais, et d'avantage friendly pour les non tech que re-router sur /admin avec le token mdr 
