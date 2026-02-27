@@ -1,0 +1,10 @@
+{
+  "photos": [
+    { "src": "/uploads/photo-1.jpg", "alt": "Salle – ambiance bistrot" },
+    { "src": "/uploads/photo-2.jpg", "alt": "Banquettes & bois" },
+    { "src": "/uploads/photo-3.jpg", "alt": "Assiette – cuisine de saison" },
+    { "src": "/uploads/photo-4.jpg", "alt": "Dessert – gourmandise" },
+    { "src": "/uploads/photo-5.jpg", "alt": "Verres & table dressée" },
+    { "src": "/uploads/photo-6.jpg", "alt": "Ambiance – service du soir" }
+  ]
+}

@@ -7,7 +7,7 @@ public_folder: "/uploads"
 
 collections:
   # =========================
-  # PAGES (déjà chez toi)
+  # PAGES
   # =========================
   - name: "pages"
     label: "Pages"
@@ -29,7 +29,7 @@ collections:
           - { label: "Alt image", name: "bgAlt", widget: "string", required: false }
 
   # =========================
-  # MENUS (nouveau)
+  # MENUS
   # =========================
   - name: "menus"
     label: "Cartes & Menus"
@@ -101,3 +101,22 @@ collections:
                   - { label: "Description", name: "desc", widget: "string", required: false }
 
               - { label: "Note de bas", name: "note", widget: "text", required: false }
+
+  # =========================
+  # PHOTOS (UI PRO avec vignettes)
+  # =========================
+  - name: "photos"
+    label: "Photos"
+    files:
+      - name: "gallery"
+        label: "Galerie"
+        file: "content/photos.json"
+        format: "json"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string" }
