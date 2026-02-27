@@ -1,9 +1,23 @@
+:global(:root) {
+  --bottom-bar-h: 84px;
+
+  /* ✅ gap entre le bloc (inner) et la bottom bar */
+  --hero-gap-to-bar: 120px;
+  --hero-min-gap: 56px;
+
+  /* ✅ largeur/padding comme un container */
+  --container-max: 1120px;      /* adapte à ta bottom bar si besoin */
+  --container-pad: 24px;        /* idem */
+}
+
 .hero {
   position: relative;
-  height: 100vh;     /* IMPORTANT */
-  min-height: 620px;
   width: 100%;
   overflow: hidden;
+
+  height: calc(100vh - var(--bottom-bar-h));
+  height: calc(100dvh - var(--bottom-bar-h));
+  min-height: 620px;
 }
 
 .bg {
@@ -17,23 +31,49 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.62) 0%,
-    rgba(0,0,0,0.38) 40%,
-    rgba(0,0,0,0.25) 70%,
-    rgba(0,0,0,0.18) 100%
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.38) 40%,
+    rgba(0, 0, 0, 0.25) 70%,
+    rgba(0, 0, 0, 0.18) 100%
   );
 }
 
-.content {
+/* ✅ FRAME = ton "container vert" (même width que bottom bar), FULL HEIGHT */
+.frame {
   position: relative;
   z-index: 2;
-  height: calc(100vh - 64px);
-  min-height: 620px;
+
+  height: 100%;
+
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+
+}
+
+/* ✅ CONTENT = rouge, FULL HEIGHT et flex */
+.content {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 0 64px 0;
+
+
+}
+
+/* ✅ bloc réel */
+.inner {
   max-width: 720px;
+  margin-bottom: max(var(--hero-gap-to-bar), var(--hero-min-gap));
+}
+
+/* Typo / UI */
+.kicker {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .title {
@@ -43,12 +83,12 @@
   letter-spacing: -0.03em;
   line-height: 1.04;
   font-weight: 750;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .subtitle {
   margin: 14px 0 0 0;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 18px;
   line-height: 1.5;
   max-width: 560px;
@@ -68,6 +108,12 @@
   padding: 12px 16px;
   font-weight: 650;
   box-shadow: var(--shadow);
+    border:none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  
 }
 
 .primary:hover {
@@ -75,33 +121,37 @@
 }
 
 .secondary {
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
   border-radius: 14px;
   padding: 12px 16px;
   font-weight: 650;
-  background: rgba(0,0,0,0.08);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .secondary:hover {
-  background: rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .note {
   margin: 18px 0 0 0;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 13px;
   letter-spacing: 0.02em;
 }
 
 @media (max-width: 720px) {
+  :global(:root) {
+    --bottom-bar-h: 96px;
+    --hero-gap-to-bar: 72px;
+    --hero-min-gap: 44px;
+    --container-pad: 16px;
+  }
+
   .hero {
     min-height: 560px;
   }
-  .content {
-    min-height: 560px;
-    padding-bottom: 44px;
-  }
+
   .title {
     font-size: 40px;
   }

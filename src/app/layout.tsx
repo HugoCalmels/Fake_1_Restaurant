@@ -3,11 +3,13 @@ import "../styles/global.css";
 import "../styles/theme.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
+import { BookingProvider } from "@/components/booking/BookingProvider";
+import BookingWidget from "@/components/booking/BookingWidget";
 
-const fontDisplay = Playfair_Display({
+const fontDisplay = Libre_Baskerville({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "700"],
   variable: "--font-display",
 });
 
@@ -26,9 +28,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${fontSans.variable} ${fontDisplay.variable}`}>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <BookingProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <BookingWidget />
+        </BookingProvider>
       </body>
     </html>
   );

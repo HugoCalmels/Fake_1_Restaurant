@@ -6,6 +6,9 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
+  # =========================
+  # PAGES (déjà chez toi)
+  # =========================
   - name: "pages"
     label: "Pages"
     files:
@@ -24,3 +27,77 @@ collections:
           - { label: "Note", name: "note", widget: "string", required: false }
           - { label: "Image de fond", name: "bgImage", widget: "image", required: false }
           - { label: "Alt image", name: "bgAlt", widget: "string", required: false }
+
+  # =========================
+  # MENUS (nouveau)
+  # =========================
+  - name: "menus"
+    label: "Cartes & Menus"
+    files:
+      - name: "menu_midi"
+        label: "Carte Midi"
+        file: "content/menu-midi.json"
+        format: "json"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+
+          - label: "Formules"
+            name: "formules"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.price}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Sous-titre", name: "sub", widget: "string", required: false }
+
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Nom", name: "name", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "string", required: false }
+
+              - { label: "Note de bas", name: "note", widget: "text", required: false }
+
+      - name: "menu_soir_weekend"
+        label: "Carte Soir & week-end"
+        file: "content/menu-soir-weekend.json"
+        format: "json"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+
+          - label: "Formules"
+            name: "formules"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.price}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Sous-titre", name: "sub", widget: "string", required: false }
+
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Nom", name: "name", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "string", required: false }
+
+              - { label: "Note de bas", name: "note", widget: "text", required: false }

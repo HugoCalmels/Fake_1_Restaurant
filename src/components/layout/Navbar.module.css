@@ -19,7 +19,7 @@
   top: 0; left: 0; right: 0;
   z-index: 999;
 
-  background: var(--navBg);
+  background: var(--bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -69,11 +69,11 @@
 .dropButton {
   color: var(--text-strong);
 
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: 0.01em;
-  text-transform: none;
+  text-transform: uppercase;
 
   text-decoration: none;
   background: transparent;
@@ -86,6 +86,7 @@
   gap: 8px;
 
   transition: color .18s ease;
+    letter-spacing: 0.10em; /* plus élégant en uppercase */
 }
 
 .link:hover,
@@ -136,6 +137,7 @@
   padding: 10px 14px;
   border-radius: var(--radius);
   border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
 }
 
 /* lang */
@@ -172,13 +174,11 @@
   top: calc(100% + 10px);
   z-index: 15;
 
-  background: var(--menuBg);
+  background: var(--bg);
   border: 1px solid var(--menuLine);
   border-radius: var(--radius-soft);
 
-  box-shadow:
-    0 18px 44px rgba(0,0,0,.16),
-    0 6px 16px rgba(0,0,0,.08);
+
 
   padding: 8px;
   display: flex;
@@ -187,6 +187,9 @@
 
   /* ✅ base compact */
   min-width: 168px;
+
+  backdrop-filter: blur(10px);
+    background: var(--bg);
 }
 
 /* ✅ IMPORTANT: centré sous le bouton (pile sous le container) */
@@ -207,12 +210,13 @@
 /* items */
 .dropItem,
 .dropItemBtn {
-  font-family: var(--font-sans);
+
+  font-family: var(--font-display);
   color: var(--text);
 
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
 
   padding: 9px 10px;
   border-radius: 10px;
@@ -225,6 +229,22 @@
   white-space: nowrap;
 
   transition: background .15s ease, color .15s ease;
+}
+/* Dropdown principal (Cartes & Menus) */
+.menuMenu .dropItem {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* Dropdown langue */
+.langMenu .dropItemBtn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .dropItem:hover,

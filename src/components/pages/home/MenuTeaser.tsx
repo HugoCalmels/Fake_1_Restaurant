@@ -17,7 +17,7 @@ export default function MenuTeaser() {
           <p className={styles.sub}>
             Courte, saisonnière, et mise à jour souvent.
           </p>
-          <Link className={styles.cta} href="/menu">
+          <Link className={styles.cta} href="/menu/soir-weekend">
             Voir le menu
           </Link>
         </div>

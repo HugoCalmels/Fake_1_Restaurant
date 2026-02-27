@@ -1,0 +1,392 @@
+/* ===== Backdrop : bottom-right (comme Zenchef) ===== */
+.backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;      /* <<< EN BAS, PAS AU MILIEU */
+  padding: 24px;              /* <<< padding autour */
+
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.backdrop[data-phase="open"]{ opacity: 1; }
+.backdrop[data-phase="closing"]{ opacity: 0; }
+
+/* ===== Panel : carte petite ===== */
+.panel{
+  width: 332px;               /* ajuste 320/332/340 si tu veux */
+  max-width: calc(100vw - 48px);
+
+  max-height: calc(100vh - 48px);
+  height: auto;
+
+  padding: 14px;
+  border-radius: 16px;
+  background: #7a4b4e;
+  color: rgba(255,255,255,0.92);
+
+  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transform: translateX(18px); /* slide depuis la droite */
+  opacity: 0;
+
+  transition:
+    transform 240ms cubic-bezier(.22,.8,.2,1),
+    opacity 240ms ease;
+}
+
+.panel[data-phase="open"]{ transform: translateX(0); opacity: 1; }
+.panel[data-phase="closing"]{ transform: translateX(18px); opacity: 0; }
+
+/* ===== Header ===== */
+.topBar{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.topTitle{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 13px;
+  opacity: 0.95;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topLang{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 800;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.closeBtn{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.10);
+  color: rgba(255,255,255,0.92);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ===== Body scrollable ===== */
+.body{
+  flex: 1 1 auto;
+  min-height: 0;
+
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.body::-webkit-scrollbar{ width: 8px; }
+.body::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 999px; }
+.body::-webkit-scrollbar-track{ background: rgba(0,0,0,0.10); border-radius: 999px; }
+
+.notice{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0.9;
+  padding: 2px 2px 10px;
+}
+
+/* ===== Rows ===== */
+.rowGroup{
+  margin-bottom: 10px;
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 12px 12px;
+
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px;
+
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+}
+
+.rowLeft{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ico{
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  opacity: 0.95;
+}
+
+.rowText{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 800;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chev{
+  opacity: 0.85;
+  transition: transform 200ms ease;
+}
+.chev[data-open="true"]{ transform: rotate(180deg); }
+
+/* ===== ACCORDION : IMPORTANT => AUCUN BLOC VISIBLE QUAND FERMÉ ===== */
+
+/* wrapper : pas de margin/padding tant que fermé */
+.accWrap{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 240ms cubic-bezier(.22,.8,.2,1);
+  margin-top: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ouvert => devient visible + espace */
+.accWrap[data-open="true"]{
+  grid-template-rows: 1fr;
+  margin-top: 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* inner : on ne met les bordures/paddings QUE quand c’est ouvert */
+.accInner{
+  overflow: hidden;
+  border-radius: 12px;
+
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.accWrap[data-open="true"] .accInner{
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 10px;
+}
+
+/* ===== Keypad ===== */
+.keypad{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.key{
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.10);
+  color: rgba(255,255,255,0.92);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.key[data-active="true"]{
+  background: rgba(255,255,255,0.92);
+  color: #6b2f2f;
+  border-color: rgba(255,255,255,0.35);
+}
+
+/* ===== Date pills ===== */
+.subPill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+
+.datePills{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.datePill{
+  position: relative;
+  height: 58px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.10);
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.datePill[data-active="true"]{
+  background: rgba(255,255,255,0.92);
+  color: #6b2f2f;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.pTop{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.pBot{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 800;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.dateInput{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ===== Horaire ===== */
+.mealLabel{
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.95;
+  padding: 2px 2px 8px;
+}
+
+.timeList{
+  display: grid;
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.timeList::-webkit-scrollbar{ width: 8px; }
+.timeList::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 999px; }
+.timeList::-webkit-scrollbar-track{ background: rgba(0,0,0,0.10); border-radius: 999px; }
+
+.timeBtn{
+  width: 100%;
+  text-align: left;
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px;
+  padding: 10px 12px;
+
+  color: rgba(255,255,255,0.92);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 800;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.timeBtn[data-active="true"]{
+  background: rgba(255,255,255,0.92);
+  color: #6b2f2f;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #47d16c;
+  box-shadow: 0 0 0 3px rgba(71,209,108,0.18);
+}
+
+.timeText{ letter-spacing: 0.01em; }
+
+/* ===== CTA + Footer ===== */
+.cta{
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 0;
+  background: rgba(255,255,255,0.92);
+  color: #6b2f2f;
+
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.cta:disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.footer{
+  text-align: center;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-size: 12px;
+  opacity: 0.75;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.zMark{
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  font-weight: 950;
+  text-transform: lowercase;
+}

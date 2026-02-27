@@ -1,0 +1,114 @@
+.page{
+  background: var(--bg);
+  padding: 96px 0 100px;
+  color: var(--text);
+}
+
+.header{
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.title{
+  font-family: var(--font-display);
+  font-size: 40px;
+  margin: 0 0 20px;
+  color: var(--brand);
+}
+
+.score{
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.scoreValue{
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.scoreMeta{
+  text-align: left;
+}
+
+.starsLarge{
+  color: #e0a100;
+  letter-spacing: 4px;
+}
+
+.small{
+  font-size: 13px;
+  color: rgba(0,0,0,0.6);
+}
+
+.grid{
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card{
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.cardHead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.name{
+  font-weight: 600;
+}
+
+.date{
+  font-size: 13px;
+  color: rgba(0,0,0,0.6);
+}
+
+.stars{
+  color: #e0a100;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.text{
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cta{
+  text-align: center;
+  margin-top: 60px;
+}
+
+.reserveBtn{
+  background: var(--brand);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.reserveBtn:hover{
+  background: #5c2828;
+}
+
+@media (max-width: 800px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,6 @@
 .wrap {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+
 }
 
 .bar {
@@ -67,6 +67,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border:none;
+  outline: none;
+    cursor: pointer;
+    font-size: 13px;
 }
 
 .reserve:hover {

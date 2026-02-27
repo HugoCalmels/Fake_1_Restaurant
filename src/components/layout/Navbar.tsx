@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import styles from "./Navbar.module.css";
+import BookingTrigger from "@/components/booking/BookingTrigger";
 
 type MenuItem = { label: string; href: string };
 
 const menuItems: MenuItem[] = [
-  { label: "Carte", href: "/menu" },
-  { label: "Menu midi", href: "/menu#midi" },
-  { label: "Menu soir", href: "/menu#soir" },
+  { label: "Carte soir & weekend", href: "/menu/soir-weekend" },
+  { label: "Carte midi", href: "/menu/midi" },
 ];
 
 function cx(...parts: Array<string | false | undefined>) {
@@ -50,14 +50,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  // ✅ close outside + escape (no close/reopen glitch)
+  // close outside + escape (no close/reopen glitch)
   useEffect(() => {
     if (!open) return;
 
     const onDown = (e: PointerEvent) => {
       const el = innerRef.current;
       if (!el) return;
-      if (el.contains(e.target as Node)) return; // click inside navbar -> ignore
+      if (el.contains(e.target as Node)) return;
       setOpen(null);
     };
 
@@ -69,7 +69,6 @@ export default function Navbar() {
     document.addEventListener("keydown", onKey);
 
     return () => {
-      // ✅ no "any" needed
       document.removeEventListener("pointerdown", onDown, true);
       document.removeEventListener("keydown", onKey);
     };
@@ -80,7 +79,12 @@ export default function Navbar() {
   return (
     <header className={cx(styles.navbar, show ? styles.visible : styles.hidden)}>
       <div ref={innerRef} className={styles.inner}>
-        <Link href="/" className={styles.brand} onClick={() => setOpen(null)} aria-label="Accueil">
+        <Link
+          href="/"
+          className={styles.brand}
+          onClick={() => setOpen(null)}
+          aria-label="Accueil"
+        >
           <Image
             src={logoSrc}
             alt="Le Faux Bistrot"
@@ -124,21 +128,25 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/#photos" className={styles.link} onClick={() => setOpen(null)}>
+          <Link href="/photos" className={styles.link} onClick={() => setOpen(null)}>
             Photos
           </Link>
-          <Link href="/#avis" className={styles.link} onClick={() => setOpen(null)}>
+          <Link href="/avis" className={styles.link} onClick={() => setOpen(null)}>
             Avis
           </Link>
-          <Link href="/contact" className={styles.link} onClick={() => setOpen(null)}>
+          <Link href="/infos" className={styles.link} onClick={() => setOpen(null)}>
             Infos
           </Link>
         </nav>
 
         <div className={styles.right}>
-          <Link href="/reserver" className={styles.reserveBtn} onClick={() => setOpen(null)}>
+          <BookingTrigger
+            source="navbar"
+            className={styles.reserveBtn}
+            onClick={() => setOpen(null)}
+          >
             Réserver
-          </Link>
+          </BookingTrigger>
 
           <div className={styles.dropdown}>
             <button
@@ -157,10 +165,18 @@ export default function Navbar() {
 
             {open === "lang" && (
               <div className={cx(styles.dropMenu, styles.langMenu)} role="menu">
-                <button className={styles.dropItemBtn} type="button" onClick={() => setOpen(null)}>
+                <button
+                  className={styles.dropItemBtn}
+                  type="button"
+                  onClick={() => setOpen(null)}
+                >
                   FR
                 </button>
-                <button className={styles.dropItemBtn} type="button" onClick={() => setOpen(null)}>
+                <button
+                  className={styles.dropItemBtn}
+                  type="button"
+                  onClick={() => setOpen(null)}
+                >
                   EN
                 </button>
               </div>

@@ -1,0 +1,52 @@
+{
+  "title": "Carte Midi",
+  "intro": "Nos plats “canailles” changent toute la semaine avec un supplément (parfois). Pensez à réserver !!!! (ou à cliquer sur “réserver”, c’est pareil ici).",
+  "tabs": {
+    "active": "midi",
+    "midiLabel": "Carte Midi",
+    "soirLabel": "Carte Soir et week-end"
+  },
+  "formules": [
+    { "label": "PLAT", "price": "13,50 EUR" },
+    { "label": "ENTREE PLAT OU PLAT DESSERT", "price": "17,50 EUR" },
+    { "label": "ENTREE PLAT DESSERT", "price": "20,50 EUR" }
+  ],
+  "sections": [
+    {
+      "title": "LES ENTREES",
+      "items": [
+        { "name": "Entrée du jour", "desc": "à consulter sur la petite ardoise… (si elle n’a pas disparu)." },
+        { "name": "Tartare de concombre, saumon fumé, raisins" },
+        { "name": "Œufs mayonnaise" },
+        { "name": "Fromage de tête sauce gribiche" },
+        { "name": "Salade du Faux Bistrot", "desc": "Mesclun, piquillos, gésiers, mozzarella & aubergine farcie — ça change selon l’arrivage quotidien." },
+        { "name": "Salade de chèvre chaud et miel" }
+      ]
+    },
+    {
+      "title": "Les plats",
+      "items": [
+        { "name": "Nos plats Canailles", "desc": "suivant arrivage et jour — Supp 3€ (lundi langue, mardi foie… ou l’inverse, personne ne vérifie)." },
+        { "name": "Suggestion du jour", "desc": "à consulter sur la petite ardoise… ou à deviner." },
+        { "name": "Bavette d’Aloyau" },
+        { "name": "Manchon de canard confit" },
+        { "name": "Tartare de bœuf" },
+        { "name": "Poisson", "desc": "Sole “meunière-ish”." },
+        { "name": "Filet mignon de porc", "desc": "Sauce forestière." },
+        { "name": "Accompagnements", "desc": "Salade, frites maison, risotto, légumes de saison… au choix" },
+        { "name": "Suppléments", "desc": "Toute demande de supplément sauce roquefort/poivre ou frites maison : 1,00€ (même en démo)." }
+      ]
+    },
+    {
+      "title": "Les desserts",
+      "items": [
+        { "name": "Profiteroles au chocolat" },
+        { "name": "Panna cotta", "desc": "Différents parfums vous seront proposés (selon le placard)." },
+        { "name": "Crème brulée" },
+        { "name": "Café gourmand", "desc": "Supp. + 3€ — varie selon l’humeur du chef." },
+        { "name": "Gaufre maison", "desc": "Chocolat chaud & chantilly." }
+      ],
+      "note": "Produits frais, cuisine maison — on s’excuse si certains plats viennent à manquer (ou si c’est déjà mangé)."
+    }
+  ]
+}

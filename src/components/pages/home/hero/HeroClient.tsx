@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/layout/Container";
 import styles from "./Hero.module.css";
 import { useEffect, useRef } from "react";
 import type { HeroContent } from "./Hero";
+import BookingTrigger from "@/components/booking/BookingTrigger";
 
 export const HERO_EVENT = "hero:metrics";
 
@@ -30,7 +30,7 @@ export default function HeroClient({ content }: { content: HeroContent }) {
 
     publish();
 
-    const ro = new ResizeObserver(() => publish());
+    const ro = new ResizeObserver(publish);
     ro.observe(el);
 
     window.addEventListener("resize", publish);
@@ -52,31 +52,32 @@ export default function HeroClient({ content }: { content: HeroContent }) {
       />
       <div className={styles.overlay} />
 
-      <Container>
+      <div className={styles.frame}>
         <div className={styles.content}>
-          {content.kicker && <p className={styles.kicker}>{content.kicker}</p>}
+          <div className={styles.inner}>
+            {content.kicker && <p className={styles.kicker}>{content.kicker}</p>}
 
-          <h1 className={styles.title}>{content.title}</h1>
+            <h1 className={styles.title}>{content.title}</h1>
 
-          {content.subtitle && (
-            <p className={styles.subtitle}>{content.subtitle}</p>
-          )}
+            {content.subtitle && <p className={styles.subtitle}>{content.subtitle}</p>}
 
-          <div className={styles.actions}>
-            <Link className={styles.primary} href={content.primaryCtaHref}>
-              {content.primaryCtaLabel}
-            </Link>
+            <div className={styles.actions}>
+              {/* ✅ remplace le Link par BookingTrigger en gardant le style */}
+              <BookingTrigger source="hero" className={styles.primary}>
+                {content.primaryCtaLabel}
+              </BookingTrigger>
 
-            {content.secondaryCtaLabel && content.secondaryCtaHref && (
-              <Link className={styles.secondary} href={content.secondaryCtaHref}>
-                {content.secondaryCtaLabel}
-              </Link>
-            )}
+              {content.secondaryCtaLabel && content.secondaryCtaHref && (
+<Link className={styles.secondary} href="/menu/soir-weekend">
+  {content.secondaryCtaLabel}
+</Link>
+              )}
+            </div>
+
+            {content.note && <p className={styles.note}>{content.note}</p>}
           </div>
-
-          {content.note && <p className={styles.note}>{content.note}</p>}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

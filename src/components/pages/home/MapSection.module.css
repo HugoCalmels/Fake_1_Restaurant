@@ -61,6 +61,10 @@
   font-weight: 750;
   margin-top: 14px;
   width: 100%;
+  border:none;
+  outline:none;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .primary:hover { background: var(--brandHover); }

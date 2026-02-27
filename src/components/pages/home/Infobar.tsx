@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import styles from "./InfoBar.module.css";
+import BookingTrigger from "@/components/booking/BookingTrigger";
 
 export default function Infobar() {
   return (
@@ -15,21 +16,22 @@ export default function Infobar() {
 
           <div className={styles.item}>
             <div className={styles.kicker}>Adresse</div>
-            <div className={styles.value}>6 rue de l’Étoile · 31000 Toulouse</div>
+            <div className={styles.value}>6 rue du faux · 31000 Toulouse</div>
           </div>
 
           <div className={styles.divider} />
 
           <div className={styles.item}>
             <div className={styles.kicker}>Téléphone</div>
-            <a className={styles.valueLink} href="tel:+33561631343">
-              05 61 63 13 43
+            <a className={styles.valueLink} href="tel:+33561631300">
+              05 61 00 00 00
             </a>
           </div>
 
-          <a className={styles.reserve} href="/reserver">
-            RÉSERVER
-          </a>
+          {/* ✅ remplace le <a> par BookingTrigger en gardant le style */}
+<BookingTrigger source="other" className={styles.reserve}>
+  RÉSERVER
+</BookingTrigger>
         </div>
       </Container>
     </section>

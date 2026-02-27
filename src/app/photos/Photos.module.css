@@ -1,0 +1,176 @@
+.page{
+  background: var(--bg);
+  color: var(--text);
+  padding: 96px 0 80px;
+}
+
+/* container commun head + grid */
+.head,
+.grid{
+  width: min(1180px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.head{
+  padding-top: 6px;
+  margin-bottom: 16px;
+  text-align: center; /* ✅ titre au milieu */
+}
+
+.title{
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 600;
+  color: #6b2f2f;
+  margin: 0 0 6px;
+}
+
+.sub{
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(0,0,0,0.58);
+  margin: 0;
+}
+
+/* grille clean */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card{
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.55);
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.10);
+}
+
+.thumb{
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== lightbox propre ===== */
+.overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.80);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+}
+
+.modal{
+  width: 100%;
+  height: 100%;
+  padding: 22px; /* marge globale */
+  display: grid;
+  place-items: center;
+}
+
+/* ✅ wrapper shrink-to-fit : la croix se place par rapport à l’image */
+.figure{
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  line-height: 0; /* évite les gaps “baseline” */
+}
+
+/* image: grande, mais sans dépasser */
+.full{
+  max-width: min(1180px, 92vw);
+  max-height: 86vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 24px 90px rgba(0,0,0,0.45);
+  background: transparent;
+}
+
+/* ✅ croix parfaitement centrée (X en CSS, pas le glyph ×) */
+.close{
+  position: absolute;
+  top: 14px;    /* ✅ 10–20px */
+  right: 14px;  /* ✅ 10–20px */
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.55);
+  cursor: pointer;
+
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+/* le “X” */
+.close::before,
+.close::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background: rgba(255,255,255,0.92);
+  transform-origin: center;
+}
+
+.close::before{
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close::after{
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close:hover{
+  background: rgba(107,47,47,0.85);
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .thumb{ height: 220px; }
+}
+
+@media (max-width: 640px){
+  .head,
+  .grid{
+    width: calc(100% - 24px);
+  }
+}
+
+@media (max-width: 560px){
+  .grid{ grid-template-columns: 1fr; }
+  .thumb{ height: 230px; }
+  .title{ font-size: 30px; }
+
+  .modal{ padding: 14px; }
+
+  .full{
+    max-width: 94vw;
+    max-height: 82vh;
+  }
+
+  .close{
+    top: 12px;
+    right: 12px;
+  }
+}

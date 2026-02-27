@@ -1,12 +1,12 @@
 {
-  "bgAlt": "Intérieur du restaurant",
+  "kicker": "",
+  "title": "Le faux bistrot",
+  "subtitle": "Cuisine de saison, vins vivants, ambiance bistrot.",
   "primaryCtaLabel": "Réserver",
+  "primaryCtaHref": "/reserver",
+  "secondaryCtaLabel": "Voir la carte",
   "secondaryCtaHref": "/menu",
   "note": "Déjeuner & dîner · Produits frais · Options végétariennes",
-  "kicker": "",
   "bgImage": "/images/landing-resto-fake.webp",
-  "subtitle": "Cuisine de saison, vins vivants, ambiance bistrot.",
-  "secondaryCtaLabel": "Voir la carte",
-  "title": "Bistrot de l’Étoile 3",
-  "primaryCtaHref": "/reserver"
+  "bgAlt": "Intérieur du restaurant"
 }
