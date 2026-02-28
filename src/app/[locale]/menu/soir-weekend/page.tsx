@@ -1,8 +1,7 @@
 import Link from "next/link";
 import "../menu.css";
 
-// adapte le chemin si besoin selon ton projet
-import data from "../../../../content/menu-midi.json";
+import data from "../../../../../content/menu-soir-weekend.json";
 
 type MenuData = {
   title: string;
@@ -25,15 +24,16 @@ export default function Page() {
         {/* tabs */}
         <div className="menuTabsWrap">
           <div className="menuTabs">
-            <Link className="menuTab" href="/menu/soir-weekend">
+            <Link className="menuTab menuTabActive" href="/menu/soir-weekend">
               Carte Soir et week-end
             </Link>
-            <Link className="menuTab menuTabActive" href="/menu/midi">
+            <Link className="menuTab" href="/menu/midi">
               Carte Midi
             </Link>
           </div>
         </div>
 
+        {/* card */}
         <section className="menuCard">
           <div className="menuCardTopLine" />
 
@@ -55,10 +55,13 @@ export default function Page() {
 
           {/* FORMULES */}
           <div className="menuSection">
+            <h2 className="menuSectionTitle">{menu.formules?.[0]?.label ?? "Formules"}</h2>
+            <div className="menuSectionDash">—</div>
+
             {menu.formules.map((x) => (
               <div className="menuItem" key={x.label}>
                 <div className="menuRow">
-                  <span className="menuLabel menuLabelCaps">{x.label}</span>
+                  <span className="menuLabel">{x.label}</span>
                   <span className="menuLeader" aria-hidden="true" />
                   <span className="menuValueBox">{x.price}</span>
                 </div>

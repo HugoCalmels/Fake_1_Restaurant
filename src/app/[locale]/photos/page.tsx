@@ -2,12 +2,31 @@
 
 import { useEffect, useMemo, useState } from "react";
 import styles from "./Photos.module.css";
-import data from "../../../content/photos.json";
+import data from "../../../../content/photos.json";
 
 type Photo = { src: string; alt: string };
 
-export default function PhotosPage() {
+export default function PhotosClient({ locale }: { locale: "fr" | "en" }) {
   const photos = (data as { photos: Photo[] }).photos;
+
+  const t =
+    locale === "en"
+      ? {
+          title: "Photos",
+          sub: "Atmosphere & plates (demo).",
+          gridLabel: "Photo gallery",
+          open: (alt: string) => `Open: ${alt}`,
+          dialogLabel: "Enlarged photo",
+          close: "Close",
+        }
+      : {
+          title: "Photos",
+          sub: "Ambiances & assiettes (démo).",
+          gridLabel: "Galerie photos",
+          open: (alt: string) => `Ouvrir: ${alt}`,
+          dialogLabel: "Photo agrandie",
+          close: "Fermer",
+        };
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const active = useMemo(
@@ -36,18 +55,18 @@ export default function PhotosPage() {
   return (
     <main className={styles.page}>
       <header className={styles.head}>
-        <h1 className={styles.title}>Photos</h1>
-        <p className={styles.sub}>Ambiances & assiettes (démo).</p>
+        <h1 className={styles.title}>{t.title}</h1>
+        <p className={styles.sub}>{t.sub}</p>
       </header>
 
-      <section className={styles.grid} aria-label="Galerie photos">
+      <section className={styles.grid} aria-label={t.gridLabel}>
         {photos.map((p, idx) => (
           <button
             key={`${p.src}-${idx}`}
             type="button"
             className={styles.card}
             onClick={() => setActiveIndex(idx)}
-            aria-label={`Ouvrir: ${p.alt}`}
+            aria-label={t.open(p.alt)}
           >
             <img className={styles.thumb} src={p.src} alt={p.alt} loading="lazy" />
           </button>
@@ -59,7 +78,7 @@ export default function PhotosPage() {
           className={styles.overlay}
           role="dialog"
           aria-modal="true"
-          aria-label="Photo agrandie"
+          aria-label={t.dialogLabel}
           onMouseDown={(e) => {
             if (e.target === e.currentTarget) setActiveIndex(null);
           }}
@@ -70,7 +89,7 @@ export default function PhotosPage() {
                 type="button"
                 className={styles.close}
                 onClick={() => setActiveIndex(null)}
-                aria-label="Fermer"
+                aria-label={t.close}
               >
                 ×
               </button>

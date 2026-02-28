@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container";
 import styles from "./InfoBar.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
 
-export default function Infobar() {
+export default function InfobarFR() {
   return (
     <section className={styles.wrap}>
       <Container>
@@ -28,10 +28,9 @@ export default function Infobar() {
             </a>
           </div>
 
-          {/* ✅ remplace le <a> par BookingTrigger en gardant le style */}
-<BookingTrigger source="other" className={styles.reserve}>
-  RÉSERVER
-</BookingTrigger>
+          <BookingTrigger source="other" className={styles.reserve}>
+            RÉSERVER
+          </BookingTrigger>
         </div>
       </Container>
     </section>

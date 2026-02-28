@@ -3,22 +3,29 @@ import Container from "@/components/layout/Container";
 import styles from "./MenuTeaser.module.css";
 
 const highlights = [
-  { title: "Entrées", desc: "Pour commencer léger (ou pas)." },
-  { title: "Plats", desc: "Saison, cuisson, sauce. Simple & net." },
-  { title: "Desserts", desc: "Classiques de bistrot + twist." },
+  { title: "Starters", desc: "To begin lightly (or not)." },
+  { title: "Mains", desc: "Seasonal, precise cooking, clean flavors." },
+  { title: "Desserts", desc: "Bistro classics with a twist." },
 ];
 
-export default function MenuTeaser() {
+function withLocale(locale: "en", href: string) {
+  return `/${locale}${href}`;
+}
+
+export default function MenuTeaserEN() {
   return (
     <section className={styles.section}>
       <Container>
         <div className={styles.head}>
-          <h2 className={styles.title}>La carte</h2>
+          <h2 className={styles.title}>The Menu</h2>
           <p className={styles.sub}>
-            Courte, saisonnière, et mise à jour souvent.
+            Short, seasonal, and updated regularly.
           </p>
-          <Link className={styles.cta} href="/menu/soir-weekend">
-            Voir le menu
+          <Link
+            className={styles.cta}
+            href={withLocale("en", "/menu/soir-weekend")}
+          >
+            View the menu
           </Link>
         </div>
 
@@ -28,7 +35,9 @@ export default function MenuTeaser() {
               <div className={styles.cardTitle}>{h.title}</div>
               <div className={styles.cardDesc}>{h.desc}</div>
               <div className={styles.fakeLine} />
-              <div className={styles.small}>Ex: plat du jour, suggestions, etc.</div>
+              <div className={styles.small}>
+                Example: daily special, seasonal suggestions, etc.
+              </div>
             </div>
           ))}
         </div>

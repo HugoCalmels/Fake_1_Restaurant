@@ -1,7 +1,7 @@
 import Container from "@/components/layout/Container";
 import styles from "./AboutSection.module.css";
 
-export default function AboutSection() {
+export default function AboutSectionFR() {
   return (
     <section className={styles.section}>
       <Container>

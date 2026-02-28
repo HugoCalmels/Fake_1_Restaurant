@@ -9,7 +9,18 @@ import BookingTrigger from "@/components/booking/BookingTrigger";
 
 export const HERO_EVENT = "hero:metrics";
 
-export default function HeroClient({ content }: { content: HeroContent }) {
+function withLocale(locale: "fr" | "en", href: string) {
+  if (!href.startsWith("/")) return `/${locale}/${href}`;
+  return `/${locale}${href === "/" ? "" : href}`;
+}
+
+export default function HeroClient({
+  locale,
+  content,
+}: {
+  locale: "fr" | "en";
+  content: HeroContent;
+}) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -62,15 +73,17 @@ export default function HeroClient({ content }: { content: HeroContent }) {
             {content.subtitle && <p className={styles.subtitle}>{content.subtitle}</p>}
 
             <div className={styles.actions}>
-              {/* ✅ remplace le Link par BookingTrigger en gardant le style */}
               <BookingTrigger source="hero" className={styles.primary}>
                 {content.primaryCtaLabel}
               </BookingTrigger>
 
               {content.secondaryCtaLabel && content.secondaryCtaHref && (
-<Link className={styles.secondary} href="/menu/soir-weekend">
-  {content.secondaryCtaLabel}
-</Link>
+                <Link
+                  className={styles.secondary}
+                  href={withLocale(locale, content.secondaryCtaHref)}
+                >
+                  {content.secondaryCtaLabel}
+                </Link>
               )}
             </div>
 
