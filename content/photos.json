@@ -1,10 +1,28 @@
 {
   "photos": [
-    { "src": "/uploads/photo-1.jpg", "alt": "Salle – ambiance bistrot" },
-    { "src": "/uploads/photo-2.jpg", "alt": "Banquettes & bois" },
-    { "src": "/uploads/photo-3.jpg", "alt": "Assiette – cuisine de saison" },
-    { "src": "/uploads/photo-4.jpg", "alt": "Dessert – gourmandise" },
-    { "src": "/uploads/photo-5.jpg", "alt": "Verres & table dressée" },
-    { "src": "/uploads/photo-6.jpg", "alt": "Ambiance – service du soir" }
+    {
+      "src": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Salle – ambiance bistrot"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1551529834-525807d6b4f3?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Banquettes & bois"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Assiette – cuisine de saison"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Dessert – gourmandise"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Verres & table dressée"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      "alt": "Ambiance – service du soir"
+    }
   ]
 }
