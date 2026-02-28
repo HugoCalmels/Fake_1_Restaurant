@@ -14,19 +14,7 @@ function pad2(n: number) {
 function toISODate(d: Date) {
   return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
 }
-function formatFRShort(d: Date) {
-  const wk = d.toLocaleDateString("fr-FR", { weekday: "short" }); // "mer."
-  return `${wk} ${d.getDate()}`;
-}
-function labelTodayTomorrow(d: Date) {
-  const now = new Date();
-  const a = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  const b = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
-  const diff = Math.round((b - a) / 86400000);
-  if (diff === 0) return "Aujourd’hui";
-  if (diff === 1) return "Demain";
-  return "Autre";
-}
+
 function buildTimes() {
   const out: string[] = [];
   const start = 19 * 60 + 30;
@@ -37,8 +25,67 @@ function buildTimes() {
   return out;
 }
 
-export default function BookingWidget() {
+function startOfDay(d: Date) {
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+}
+
+function labelTodayTomorrow(d: Date, locale: "fr" | "en") {
+  const now = new Date();
+  const a = startOfDay(now);
+  const b = startOfDay(d);
+  const diff = Math.round((b - a) / 86400000);
+
+  if (diff === 0) return locale === "en" ? "Today" : "Aujourd’hui";
+  if (diff === 1) return locale === "en" ? "Tomorrow" : "Demain";
+  return locale === "en" ? "Other" : "Autre";
+}
+
+function formatShort(d: Date, locale: "fr" | "en") {
+  // FR: "mer. 12" | EN: "Wed 12"
+  const loc = locale === "en" ? "en-US" : "fr-FR";
+  const wk = d.toLocaleDateString(loc, { weekday: "short" });
+  return `${wk} ${d.getDate()}`;
+}
+
+export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
   const { isOpen, closeBooking } = useBooking();
+
+  const t =
+    locale === "en"
+      ? {
+          dialogLabel: "Booking",
+          topTitle: "LE FAUX BISTROT",
+          topLang: "EN",
+          close: "Close",
+          notice: "Hello — during the summer period we are closed on Saturdays.",
+          covers: (n: number) => `${n} guests`,
+          nextAvailability: "Next availability",
+          today: "Today",
+          tomorrow: "Tomorrow",
+          other: "Other",
+          chooseOtherDate: "Choose another date",
+          time: "Time",
+          dinner: "Dinner",
+          book: "Book",
+          poweredBy: "Powered by Fakechef",
+        }
+      : {
+          dialogLabel: "Réservation",
+          topTitle: "LE FAUX BISTROT",
+          topLang: "FR",
+          close: "Fermer",
+          notice: "Bonjour durant la période estivale nous sommes fermé les samedis",
+          covers: (n: number) => `${n} couverts`,
+          nextAvailability: "Prochaine disponibilité",
+          today: "Aujourd’hui",
+          tomorrow: "Demain",
+          other: "Autre",
+          chooseOtherDate: "Choisir une autre date",
+          time: "Horaire",
+          dinner: "Dîner",
+          book: "Réserver",
+          poweredBy: "Rendu possible par Fakechef",
+        };
 
   const [present, setPresent] = useState(false);
   const [phase, setPhase] = useState<"open" | "closing">("open");
@@ -66,10 +113,11 @@ export default function BookingWidget() {
   }, [dateISO]);
 
   const dateLabel = useMemo(() => {
-    const lab = labelTodayTomorrow(dateObj);
-    if (lab === "Aujourd’hui" || lab === "Demain") return lab;
-    return formatFRShort(dateObj);
-  }, [dateObj]);
+    const lab = labelTodayTomorrow(dateObj, locale);
+    if (lab === (locale === "en" ? "Today" : "Aujourd’hui")) return lab;
+    if (lab === (locale === "en" ? "Tomorrow" : "Demain")) return lab;
+    return formatShort(dateObj, locale);
+  }, [dateObj, locale]);
 
   const canSubmit = Boolean(time);
 
@@ -115,9 +163,9 @@ export default function BookingWidget() {
   useEffect(() => {
     if (!present) return;
     lastActive.current = document.activeElement as HTMLElement | null;
-    const t = window.setTimeout(() => panelRef.current?.focus(), 0);
+    const tt = window.setTimeout(() => panelRef.current?.focus(), 0);
     return () => {
-      window.clearTimeout(t);
+      window.clearTimeout(tt);
       lastActive.current?.focus?.();
     };
   }, [present]);
@@ -131,8 +179,7 @@ export default function BookingWidget() {
     requestClose();
   };
 
-  const toggle = (s: Exclude<Section, null>) =>
-    setSection((cur) => (cur === s ? null : s));
+  const toggle = (s: Exclude<Section, null>) => setSection((cur) => (cur === s ? null : s));
 
   const ui = (
     <div
@@ -147,32 +194,46 @@ export default function BookingWidget() {
         data-phase={phase}
         role="dialog"
         aria-modal="true"
-        aria-label="Réservation"
+        aria-label={t.dialogLabel}
         tabIndex={-1}
       >
-        {/* TOP (non scroll) */}
+        {/* TOP */}
         <div className={styles.topBar}>
-          <div className={styles.topTitle}>BISTROT DE L’ÉTOILE</div>
-          <div className={styles.topLang}>FR</div>
-          <button className={styles.closeBtn} type="button" onClick={requestClose} aria-label="Fermer">
+          <div className={styles.topTitle}>{t.topTitle}</div>
+          <div className={styles.topLang}>{t.topLang}</div>
+          <button
+            className={styles.closeBtn}
+            type="button"
+            onClick={requestClose}
+            aria-label={t.close}
+          >
             <FiX aria-hidden="true" />
           </button>
         </div>
 
-        {/* BODY scrollable (c'est ça qui rend le panel "petit") */}
+        {/* BODY */}
         <div className={styles.body}>
-          <div className={styles.notice}>
-            Bonjour durant la période estivale nous sommes fermé les samedis
-          </div>
+          <div className={styles.notice}>{t.notice}</div>
 
-          {/* Couverts */}
+          {/* Couverts / Guests */}
           <div className={styles.rowGroup}>
-            <button className={styles.row} type="button" onClick={() => toggle("covers")} aria-expanded={section === "covers"}>
+            <button
+              className={styles.row}
+              type="button"
+              onClick={() => toggle("covers")}
+              aria-expanded={section === "covers"}
+            >
               <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">🍴</span>
-                <span className={styles.rowText}>{covers} couverts</span>
+                <span className={styles.ico} aria-hidden="true">
+                  🍴
+                </span>
+                <span className={styles.rowText}>{t.covers(covers)}</span>
               </span>
-              <FiChevronDown className={styles.chev} data-open={section === "covers"} aria-hidden="true" />
+              <FiChevronDown
+                className={styles.chev}
+                data-open={section === "covers"}
+                aria-hidden="true"
+              />
             </button>
 
             <div className={styles.accWrap} data-open={section === "covers"}>
@@ -189,9 +250,28 @@ export default function BookingWidget() {
                       {n}
                     </button>
                   ))}
-                  <button type="button" className={styles.key} onClick={() => setCovers((v) => Math.max(1, v - 1))}>–</button>
-                  <button type="button" className={styles.key} data-active={covers === 0} onClick={() => setCovers(0)}>0</button>
-                  <button type="button" className={styles.key} onClick={() => setCovers((v) => Math.min(20, v + 1))}>+</button>
+                  <button
+                    type="button"
+                    className={styles.key}
+                    onClick={() => setCovers((v) => Math.max(1, v - 1))}
+                  >
+                    –
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.key}
+                    data-active={covers === 0}
+                    onClick={() => setCovers(0)}
+                  >
+                    0
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.key}
+                    onClick={() => setCovers((v) => Math.min(20, v + 1))}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </div>
@@ -199,17 +279,28 @@ export default function BookingWidget() {
 
           {/* Date */}
           <div className={styles.rowGroup}>
-            <button className={styles.row} type="button" onClick={() => toggle("date")} aria-expanded={section === "date"}>
+            <button
+              className={styles.row}
+              type="button"
+              onClick={() => toggle("date")}
+              aria-expanded={section === "date"}
+            >
               <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">📅</span>
+                <span className={styles.ico} aria-hidden="true">
+                  📅
+                </span>
                 <span className={styles.rowText}>{dateLabel}</span>
               </span>
-              <FiChevronDown className={styles.chev} data-open={section === "date"} aria-hidden="true" />
+              <FiChevronDown
+                className={styles.chev}
+                data-open={section === "date"}
+                aria-hidden="true"
+              />
             </button>
 
             <div className={styles.accWrap} data-open={section === "date"}>
               <div className={styles.accInner}>
-                <div className={styles.subPill}>Prochaine disponibilité</div>
+                <div className={styles.subPill}>{t.nextAvailability}</div>
 
                 <div className={styles.datePills}>
                   <button
@@ -218,8 +309,8 @@ export default function BookingWidget() {
                     data-active={dateISO === toISODate(today)}
                     onClick={() => setDateISO(toISODate(today))}
                   >
-                    <div className={styles.pTop}>{formatFRShort(today)}</div>
-                    <div className={styles.pBot}>Aujourd’hui</div>
+                    <div className={styles.pTop}>{formatShort(today, locale)}</div>
+                    <div className={styles.pBot}>{t.today}</div>
                   </button>
 
                   <button
@@ -228,8 +319,8 @@ export default function BookingWidget() {
                     data-active={dateISO === toISODate(tomorrow)}
                     onClick={() => setDateISO(toISODate(tomorrow))}
                   >
-                    <div className={styles.pTop}>{formatFRShort(tomorrow)}</div>
-                    <div className={styles.pBot}>Demain</div>
+                    <div className={styles.pTop}>{formatShort(tomorrow, locale)}</div>
+                    <div className={styles.pBot}>{t.tomorrow}</div>
                   </button>
 
                   <label
@@ -237,14 +328,14 @@ export default function BookingWidget() {
                     data-active={!(dateISO === toISODate(today) || dateISO === toISODate(tomorrow))}
                   >
                     <div className={styles.pTop}>📆</div>
-                    <div className={styles.pBot}>Autre</div>
+                    <div className={styles.pBot}>{t.other}</div>
                     <input
                       className={styles.dateInput}
                       type="date"
                       value={dateISO}
                       min={toISODate(new Date())}
                       onChange={(e) => setDateISO(e.target.value)}
-                      aria-label="Choisir une autre date"
+                      aria-label={t.chooseOtherDate}
                     />
                   </label>
                 </div>
@@ -252,30 +343,41 @@ export default function BookingWidget() {
             </div>
           </div>
 
-          {/* Horaire */}
+          {/* Horaire / Time */}
           <div className={styles.rowGroup}>
-            <button className={styles.row} type="button" onClick={() => toggle("time")} aria-expanded={section === "time"}>
+            <button
+              className={styles.row}
+              type="button"
+              onClick={() => toggle("time")}
+              aria-expanded={section === "time"}
+            >
               <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">🕘</span>
-                <span className={styles.rowText}>Horaire</span>
+                <span className={styles.ico} aria-hidden="true">
+                  🕘
+                </span>
+                <span className={styles.rowText}>{t.time}</span>
               </span>
-              <FiChevronDown className={styles.chev} data-open={section === "time"} aria-hidden="true" />
+              <FiChevronDown
+                className={styles.chev}
+                data-open={section === "time"}
+                aria-hidden="true"
+              />
             </button>
 
             <div className={styles.accWrap} data-open={section === "time"}>
               <div className={styles.accInner}>
-                <div className={styles.mealLabel}>Dîner</div>
+                <div className={styles.mealLabel}>{t.dinner}</div>
                 <div className={styles.timeList}>
-                  {times.map((t) => (
+                  {times.map((tt) => (
                     <button
-                      key={t}
+                      key={tt}
                       type="button"
                       className={styles.timeBtn}
-                      data-active={time === t}
-                      onClick={() => setTime(t)}
+                      data-active={time === tt}
+                      onClick={() => setTime(tt)}
                     >
                       <span className={styles.dot} aria-hidden="true" />
-                      <span className={styles.timeText}>{t}</span>
+                      <span className={styles.timeText}>{tt}</span>
                     </button>
                   ))}
                 </div>
@@ -284,7 +386,7 @@ export default function BookingWidget() {
           </div>
         </div>
 
-        {/* BOTTOM (non scroll) */}
+        {/* BOTTOM */}
         <button
           className={styles.cta}
           type="button"
@@ -294,12 +396,14 @@ export default function BookingWidget() {
             requestClose();
           }}
         >
-          Réserver
+          {t.book}
         </button>
 
         <div className={styles.footer}>
-          <span className={styles.zMark} aria-hidden="true">z</span>
-          <span>Rendu possible par Fakechef</span>
+          <span className={styles.zMark} aria-hidden="true">
+            z
+          </span>
+          <span>{t.poweredBy}</span>
         </div>
       </aside>
     </div>

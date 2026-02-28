@@ -59,7 +59,7 @@ export default async function RootLayout({
           <Navbar locale={l} />
           <main>{children}</main>
           <Footer />
-          <BookingWidget />
+          <BookingWidget locale={l} />
         </BookingProvider>
       </body>
     </html>
