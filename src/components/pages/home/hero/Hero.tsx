@@ -1,4 +1,6 @@
 import HeroClient from "./HeroClient";
+import { heroFR } from "./Hero.fr";
+import { heroEN } from "./Hero.en";
 
 export type HeroContent = {
   kicker?: string;
@@ -14,7 +16,6 @@ export type HeroContent = {
 };
 
 export default function Hero({ locale }: { locale: "fr" | "en" }) {
-  // imports synchrones OK côté server
-  const content = locale === "en" ? require("./Hero.en").heroEN : require("./Hero.fr").heroFR;
+  const content: HeroContent = locale === "en" ? heroEN : heroFR;
   return <HeroClient locale={locale} content={content} />;
 }
