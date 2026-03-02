@@ -25,7 +25,10 @@ https://www.bistrotdeletoile.fr/
 ## Objectif
 
 Faire comme si j'avais un client.
+
 -> Contenu éditable par le client via Decap CMS.
+
 -> Faux widget Zenchef pour les réservations, le vrai coute 120e par mois.
+
 -> Refonte visuelle du site
 
