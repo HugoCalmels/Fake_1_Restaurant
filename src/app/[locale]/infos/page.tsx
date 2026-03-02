@@ -1,5 +1,5 @@
 import Container from "@/components/layout/Container";
-import MapSection from "@/components/pages/home/map-section/MapSection";
+import MapSection from "@/components/home/map-section/MapSection";
 import styles from "./Infos.module.css";
 
 export default async function InfosPage({

@@ -41,7 +41,6 @@ function labelTodayTomorrow(d: Date, locale: "fr" | "en") {
 }
 
 function formatShort(d: Date, locale: "fr" | "en") {
-  // FR: "mer. 12" | EN: "Wed 12"
   const loc = locale === "en" ? "en-US" : "fr-FR";
   const wk = d.toLocaleDateString(loc, { weekday: "short" });
   return `${wk} ${d.getDate()}`;
@@ -138,7 +137,6 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
 
   useEffect(() => {
     if (isOpen) openNow();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   useEffect(() => {
@@ -148,7 +146,6 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [present]);
 
   useEffect(() => {

@@ -31,7 +31,6 @@ const META: Record<"fr" | "en", Metadata> = {
   },
 };
 
-// ✅ metadata dynamique par locale (sinon c’est figé en FR)
 export async function generateMetadata({
   params,
 }: {

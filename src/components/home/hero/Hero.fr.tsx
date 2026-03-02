@@ -5,7 +5,7 @@ export const heroFR: HeroContent = {
   title: "Le faux bistrot",
   subtitle: "Cuisine de saison, vins vivants, ambiance bistrot.",
   primaryCtaLabel: "Réserver",
-  primaryCtaHref: "/booking", // pas utilisé (BookingTrigger), mais on le garde
+  primaryCtaHref: "/booking",
   secondaryCtaLabel: "Voir la carte",
   secondaryCtaHref: "/menu/soir-weekend",
   note: "Déjeuner & dîner · Produits frais · Options végétariennes",

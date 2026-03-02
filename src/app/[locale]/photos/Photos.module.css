@@ -4,7 +4,6 @@
   padding: 96px 0 80px;
 }
 
-/* container commun head + grid */
 .head,
 .grid{
   width: min(1180px, calc(100% - 56px));
@@ -14,7 +13,7 @@
 .head{
   padding-top: 6px;
   margin-bottom: 16px;
-  text-align: center; /* ✅ titre au milieu */
+  text-align: center;
 }
 
 .title{
@@ -32,7 +31,6 @@
   margin: 0;
 }
 
-/* grille clean */
 .grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -62,7 +60,6 @@
   display: block;
 }
 
-/* ===== lightbox propre ===== */
 .overlay{
   position: fixed;
   inset: 0;
@@ -76,20 +73,18 @@
 .modal{
   width: 100%;
   height: 100%;
-  padding: 22px; /* marge globale */
+  padding: 22px;
   display: grid;
   place-items: center;
 }
 
-/* ✅ wrapper shrink-to-fit : la croix se place par rapport à l’image */
 .figure{
   position: relative;
   margin: 0;
   display: inline-block;
-  line-height: 0; /* évite les gaps “baseline” */
+  line-height: 0; 
 }
 
-/* image: grande, mais sans dépasser */
 .full{
   max-width: min(1180px, 92vw);
   max-height: 86vh;
@@ -103,11 +98,10 @@
   background: transparent;
 }
 
-/* ✅ croix parfaitement centrée (X en CSS, pas le glyph ×) */
 .close{
   position: absolute;
-  top: 14px;    /* ✅ 10–20px */
-  right: 14px;  /* ✅ 10–20px */
+  top: 14px;
+  right: 14px;
   width: 44px;
   height: 44px;
   border-radius: 999px;
@@ -119,7 +113,6 @@
   box-shadow: 0 10px 26px rgba(0,0,0,0.35);
 }
 
-/* le “X” */
 .close::before,
 .close::after{
   content: "";

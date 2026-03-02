@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { usePathname } from "next/navigation";
-
 import styles from "./Navbar.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
 
@@ -56,21 +55,6 @@ export default function NavbarBase({
   const lastY = useRef(0);
   const ticking = useRef(false);
 
-  // --- DEBUG LOGS (mount + pathname changes)
-  useEffect(() => {
-    console.log("[NavbarBase] mount", {
-      locale,
-      pathnameRaw,
-      pathname,
-      hrefHome: withLocale(locale, "/"),
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    console.log("[NavbarBase] pathname change", { pathnameRaw, pathname });
-  }, [pathnameRaw, pathname]);
-
   useEffect(() => {
     lastY.current = window.scrollY;
 
@@ -96,7 +80,6 @@ export default function NavbarBase({
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  // close outside + escape
   useEffect(() => {
     if (!open) return;
 
@@ -130,7 +113,6 @@ export default function NavbarBase({
   const hrefFR = switchLocaleInPath(pathname, "fr");
   const hrefEN = switchLocaleInPath(pathname, "en");
 
-  // Log computed hrefs whenever dropdown opens
   useEffect(() => {
     if (open === "lang") {
       console.log("[NavbarBase] lang menu open", { pathname, hrefFR, hrefEN });

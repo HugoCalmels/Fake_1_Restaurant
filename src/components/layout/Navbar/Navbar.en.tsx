@@ -1,6 +1,5 @@
 import NavbarBase from "./NavbarBase";
 
-
 export default function NavbarEN() {
   return (
     <NavbarBase

@@ -1,12 +1,9 @@
 
-import AboutSection from "@/components/pages/home/about/AboutSection";
-import Hero from "@/components/pages/home/hero/Hero";
-import Infobar from "@/components/pages/home/infobar/Infobar";
-import MapSection from "@/components/pages/home/map-section/MapSection";
- // <= doit pointer vers le wrapper
-
-import MenuTeaser from "@/components/pages/home/menu-teaser/MenuTeaser";
-
+import AboutSection from "@/components/home/about/AboutSection";
+import Hero from "@/components/home/hero/Hero";
+import Infobar from "@/components/home/infobar/Infobar";
+import MapSection from "@/components/home/map-section/MapSection";
+import MenuTeaser from "@/components/home/menu-teaser/MenuTeaser";
 
 export default async function Home({
   params,

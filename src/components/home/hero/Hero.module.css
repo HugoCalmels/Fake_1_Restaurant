@@ -1,20 +1,15 @@
 :global(:root) {
   --bottom-bar-h: 84px;
-
-  /* ✅ gap entre le bloc (inner) et la bottom bar */
   --hero-gap-to-bar: 120px;
   --hero-min-gap: 56px;
-
-  /* ✅ largeur/padding comme un container */
-  --container-max: 1120px;      /* adapte à ta bottom bar si besoin */
-  --container-pad: 24px;        /* idem */
+  --container-max: 1120px;
+  --container-pad: 24px;
 }
 
 .hero {
   position: relative;
   width: 100%;
   overflow: hidden;
-
   height: calc(100vh - var(--bottom-bar-h));
   height: calc(100dvh - var(--bottom-bar-h));
   min-height: 620px;
@@ -38,36 +33,27 @@
   );
 }
 
-/* ✅ FRAME = ton "container vert" (même width que bottom bar), FULL HEIGHT */
 .frame {
   position: relative;
   z-index: 2;
-
   height: 100%;
-
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-pad);
-
 }
 
-/* ✅ CONTENT = rouge, FULL HEIGHT et flex */
 .content {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-
 }
 
-/* ✅ bloc réel */
 .inner {
   max-width: 720px;
   margin-bottom: max(var(--hero-gap-to-bar), var(--hero-min-gap));
 }
 
-/* Typo / UI */
 .kicker {
   margin: 0 0 10px 0;
   color: rgba(255, 255, 255, 0.78);
@@ -108,12 +94,11 @@
   padding: 12px 16px;
   font-weight: 650;
   box-shadow: var(--shadow);
-    border:none;
+  border:none;
   outline: none;
   cursor: pointer;
   font-family: var(--font-sans);
   font-size: 15px;
-  
 }
 
 .primary:hover {

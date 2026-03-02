@@ -4,7 +4,6 @@
   color: var(--text);
 }
 
-/* header dans le Container => no max-width ici */
 .header{
   text-align: center;
   margin: 0 0 28px;
@@ -23,15 +22,12 @@
   margin: 0;
 }
 
-/* form aligné avec la largeur du Container, mais visuellement “centré” */
 .formWrap{
   display: grid;
   place-items: center;
   margin: 0 0 38px;
 }
 
-/* ✅ on garde un form pas trop large (comme l’original),
-   mais DANS la même grille/largeur que MapSection */
 .formCard{
   width: min(980px, 100%);
   background: rgba(255,255,255,0.75);

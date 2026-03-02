@@ -81,7 +81,7 @@ collections:
               - { label: "Note de bas", name: "note", widget: "text", required: false }
 
   # =========================
-  # PHOTOS (UI PRO avec vignettes)
+  # PHOTOS 
   # =========================
   - name: "photos"
     label: "Photos"

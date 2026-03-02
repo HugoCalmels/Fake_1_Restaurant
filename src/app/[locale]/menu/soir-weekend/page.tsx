@@ -1,6 +1,5 @@
 import Link from "next/link";
 import "../menu.css";
-
 import data from "../../../../../content/menu-soir-weekend.json";
 
 type MenuData = {
@@ -21,7 +20,6 @@ export default function Page() {
   return (
     <main className="menuPage">
       <div className="menuShell">
-        {/* tabs */}
         <div className="menuTabsWrap">
           <div className="menuTabs">
             <Link className="menuTab menuTabActive" href="/menu/soir-weekend">

@@ -1,4 +1,3 @@
-/* ===== Backdrop : bottom-right (comme Zenchef) ===== */
 .backdrop{
   position: fixed;
   inset: 0;
@@ -6,8 +5,8 @@
 
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;      /* <<< EN BAS, PAS AU MILIEU */
-  padding: 24px;              /* <<< padding autour */
+  align-items: flex-end;
+  padding: 24px;
 
   background: rgba(0,0,0,0.35);
   backdrop-filter: blur(2px);
@@ -19,9 +18,8 @@
 .backdrop[data-phase="open"]{ opacity: 1; }
 .backdrop[data-phase="closing"]{ opacity: 0; }
 
-/* ===== Panel : carte petite ===== */
 .panel{
-  width: 332px;               /* ajuste 320/332/340 si tu veux */
+  width: 332px;
   max-width: calc(100vw - 48px);
 
   max-height: calc(100vh - 48px);
@@ -38,7 +36,7 @@
   flex-direction: column;
   gap: 12px;
 
-  transform: translateX(18px); /* slide depuis la droite */
+  transform: translateX(18px);
   opacity: 0;
 
   transition:
@@ -49,7 +47,6 @@
 .panel[data-phase="open"]{ transform: translateX(0); opacity: 1; }
 .panel[data-phase="closing"]{ transform: translateX(18px); opacity: 0; }
 
-/* ===== Header ===== */
 .topBar{
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -89,7 +86,6 @@
   cursor: pointer;
 }
 
-/* ===== Body scrollable ===== */
 .body{
   flex: 1 1 auto;
   min-height: 0;
@@ -110,7 +106,6 @@
   padding: 2px 2px 10px;
 }
 
-/* ===== Rows ===== */
 .rowGroup{
   margin-bottom: 10px;
 }
@@ -161,9 +156,6 @@
 }
 .chev[data-open="true"]{ transform: rotate(180deg); }
 
-/* ===== ACCORDION : IMPORTANT => AUCUN BLOC VISIBLE QUAND FERMÉ ===== */
-
-/* wrapper : pas de margin/padding tant que fermé */
 .accWrap{
   display: grid;
   grid-template-rows: 0fr;
@@ -173,7 +165,6 @@
   pointer-events: none;
 }
 
-/* ouvert => devient visible + espace */
 .accWrap[data-open="true"]{
   grid-template-rows: 1fr;
   margin-top: 8px;
@@ -181,7 +172,6 @@
   pointer-events: auto;
 }
 
-/* inner : on ne met les bordures/paddings QUE quand c’est ouvert */
 .accInner{
   overflow: hidden;
   border-radius: 12px;
@@ -197,7 +187,6 @@
   padding: 10px;
 }
 
-/* ===== Keypad ===== */
 .keypad{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -222,7 +211,6 @@
   border-color: rgba(255,255,255,0.35);
 }
 
-/* ===== Date pills ===== */
 .subPill{
   display: inline-flex;
   align-items: center;
@@ -290,7 +278,6 @@
   cursor: pointer;
 }
 
-/* ===== Horaire ===== */
 .mealLabel{
   font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
   font-weight: 900;
@@ -347,7 +334,6 @@
 
 .timeText{ letter-spacing: 0.01em; }
 
-/* ===== CTA + Footer ===== */
 .cta{
   width: 100%;
   height: 44px;
