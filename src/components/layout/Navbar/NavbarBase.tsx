@@ -108,7 +108,7 @@ export default function NavbarBase({
     };
   }, [open]);
 
-  const logoSrc = "/images/icon-bistro-test.png";
+  const logoSrc = "/images/bistrot-icon.png";
 
   const hrefFR = switchLocaleInPath(pathname, "fr");
   const hrefEN = switchLocaleInPath(pathname, "en");
