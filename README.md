@@ -14,10 +14,9 @@ Mais coté petit client c'est le feu.
 
 0euros / mois frontend+headless, et un site modifiable par le client (plein de petits cruds).
 
-Refonte :
-https://fake-bristot.netlify.app/
-Original : 
-https://www.bistrotdeletoile.fr/
+Refonte : https://fake-bristot.netlify.app/
+
+Original : https://www.bistrotdeletoile.fr/
 
 ## Stack
 
