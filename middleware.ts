@@ -16,12 +16,16 @@ export function middleware(req: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/.netlify") ||
+    pathname.startsWith("/admin") || 
     pathname.includes(".")
   ) {
     return NextResponse.next();
   }
 
-  const hasLocale = locales.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
+  const hasLocale = locales.some(
+    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
+  );
   if (hasLocale) return NextResponse.next();
 
   const detected = getLocaleFromHeader(req);
