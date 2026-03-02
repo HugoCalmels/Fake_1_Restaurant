@@ -1,21 +1,29 @@
 # Le Faux Bistrot
 
-Refonte conceptuelle d’un site de restaurant existant.
+1 - Headless CMS
+Je voulais surtout tester Decap CMS à fond.
+Et avoir des screenshots des interfaces coté client, histoire qu'ils comprennent exactement ce qu'il est possible de faire avec Decap CMS.
 
+2 - Améliorer mon portfolio de projets
+Bon d'accord c'est 100% Frontend sans utilisation d'API (le vrai projet fullstack viendra plus tard).
+Mais coté petit client c'est le feu.
+0euros / mois frontend+headless, et un site modifiable par le client (plein de petits cruds).
+
+Refonte :
 https://fake-bristot.netlify.app/
+Original : 
+https://www.bistrotdeletoile.fr/
 
 ## Stack
 
-- Next.js (App Router)
+- Next.js
 - TypeScript
-- CSS Modules
-- Decap CMS (édition des menus & photos)
-- Netlify (CMS backend)
+- Decap/Netlify CMS 
 
 ## Objectif
 
-Explorer une refonte plus immersive et éditable
-d’un site vitrine de restaurant.
+Faire comme si j'avais un client.
+-> Contenu éditable par le client via Decap CMS.
+-> Faux widget Zenchef pour les réservations, le vrai coute 120e par mois.
+-> Refonte visuelle du site
 
-Contenu administrable via Decap CMS.
-Aucune API externe intégrée (projet front-focused).
