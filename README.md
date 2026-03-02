@@ -12,7 +12,7 @@ Bon d'accord c'est 100% Frontend sans utilisation d'API (le vrai projet fullstac
 
 Mais coté petit client c'est le feu.
 
-0euros / mois frontend+headless, et un site modifiable par le client (plein de petits cruds).
+0€ / mois frontend+headless, et un site modifiable par le client (plein de petits cruds).
 
 Refonte : https://fake-bristot.netlify.app/
 
