@@ -2,7 +2,7 @@
 
 Refonte conceptuelle d’un site de restaurant existant.
 
-🔗 Live : https://...
+https://fake-bristot.netlify.app/
 
 ## Stack
 
