@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import MapSection from "@/components/home/map-section/MapSection";
 import styles from "./Infos.module.css";
+import ContactForm from "./ContactForm";
 
 export default async function InfosPage({
   params,
@@ -21,6 +22,9 @@ export default async function InfosPage({
         phone: "Téléphone",
         message: "Votre message *",
         submit: "Envoyer",
+        sending: "Envoi…",
+        success: "Merci, votre message est bien envoyé. Nous vous répondons rapidement.",
+        error: "L’envoi n’a pas fonctionné. Réessayez, ou appelez-nous directement.",
       },
     },
     en: {
@@ -33,6 +37,9 @@ export default async function InfosPage({
         phone: "Phone",
         message: "Your message *",
         submit: "Send",
+        sending: "Sending…",
+        success: "Thank you, your message has been sent. We will get back to you shortly.",
+        error: "Sending failed. Please try again, or call us directly.",
       },
     },
   }[l];
@@ -47,27 +54,7 @@ export default async function InfosPage({
 
         <section className={styles.formWrap}>
           <div className={styles.formCard}>
-            <form className={styles.form}>
-              <div className={styles.row}>
-                <input type="text" placeholder={content.placeholders.firstName} required />
-                <input type="text" placeholder={content.placeholders.lastName} required />
-              </div>
-
-              <div className={styles.row}>
-                <input type="email" placeholder={content.placeholders.email} required />
-                <input type="tel" placeholder={content.placeholders.phone} />
-              </div>
-
-              <textarea
-                placeholder={content.placeholders.message}
-                rows={5}
-                required
-              />
-
-              <button type="submit" className={styles.submit}>
-                {content.placeholders.submit}
-              </button>
-            </form>
+            <ContactForm labels={content.placeholders} />
           </div>
         </section>
       </Container>

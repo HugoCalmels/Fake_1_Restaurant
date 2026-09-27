@@ -1,0 +1,14 @@
+{
+  "announcement": "",
+  "address": "6 rue du Faux, 31000 Toulouse",
+  "phoneDisplay": "05 36 49 00 00",
+  "lunchHours": "12:00–14:00",
+  "dinnerHours": "19:30–22:00",
+  "closedDays": "Fermé le dimanche soir et le lundi",
+  "payments": "Carte bancaire, espèces, tickets restaurant",
+  "goodToKnow": [
+    "Produits frais, carte courte qui change souvent",
+    "Plats végétariens tous les jours",
+    "Groupes à partir de 8 personnes : appelez-nous"
+  ]
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--
+  Déclaration statique du formulaire pour Netlify Forms : avec Next.js,
+  Netlify ne voit pas les formulaires rendus par React au déploiement.
+  Le vrai formulaire (app/[locale]/infos/ContactForm.tsx) envoie ses
+  données vers cette page. Les champs doivent correspondre.
+-->
+<html>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="email" type="email" />
+      <input name="phone" type="tel" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

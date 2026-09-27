@@ -1,6 +1,6 @@
 {
   "title": "Carte Soir et week-end",
-  "intro": "Nous vous proposons également nos plats “canailles” qui changent tout au long de la semaine : pensez à réserver (ou à faire semblant, c’est une démo). Tous nos plats sont accompagnés au choix de salade, frites maison, risotto…",
+  "intro": "Nos plats « canailles » changent au fil de la semaine, selon le marché. Tous nos plats sont servis au choix avec salade, frites maison ou risotto.",
   "tabs": {
     "active": "soir",
     "midiLabel": "Carte Midi",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "title": "LES GRILLADES",
+      "title": "Les grillades",
       "items": [
         { "name": "Magret de canard grillé", "desc": "supplément de 3€" },
         { "name": "Faux filet" },
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "title": "LES DESSERTS",
+      "title": "Les desserts",
       "items": [
         { "name": "Profiteroles au chocolat" },
         { "name": "Crème brûlée" },
@@ -57,7 +57,7 @@
         { "name": "Gaufre maison", "desc": "Chocolat chaud & chantilly." },
         { "name": "Dessert du jour", "desc": "Selon l’envie du chef — à demander directement !" }
       ],
-      "note": "Nous travaillons avec des produits frais — on s’excuse si certains plats viennent à manquer (ou si c’est déjà mangé)."
+      "note": "Nous travaillons avec des produits frais — certains plats peuvent venir à manquer en fin de service."
     }
   ]
 }

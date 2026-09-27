@@ -89,3 +89,20 @@
   .formCard{ padding: 20px; }
   .title{ font-size: 32px; }
 }
+/* Retour du formulaire de contact (Netlify Forms) */
+.success {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #eef6ee;
+  color: #1f5130;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.error {
+  margin: 0;
+  color: #9b1c1c;
+  font-size: 14px;
+  font-weight: 600;
+}

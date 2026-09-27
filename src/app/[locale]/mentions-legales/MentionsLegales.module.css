@@ -1,0 +1,30 @@
+.page {
+  background: var(--bg);
+  padding: 140px 0 80px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 42px);
+  color: var(--text);
+  margin: 0 0 32px;
+}
+
+.section {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--brand);
+  margin: 0 0 8px;
+}
+
+.text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}

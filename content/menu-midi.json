@@ -1,6 +1,6 @@
 {
   "title": "Carte Midi",
-  "intro": "Nos plats “canailles” changent toute la semaine avec un supplément (parfois). Pensez à réserver !!!! (ou à cliquer sur “réserver”, c’est pareil ici).",
+  "intro": "Nos plats « canailles » changent au fil de la semaine, selon le marché. Pensez à réserver, la salle se remplit vite.",
   "tabs": {
     "active": "midi",
     "midiLabel": "Carte Midi",
@@ -13,9 +13,9 @@
   ],
   "sections": [
     {
-      "title": "LES ENTREES",
+      "title": "Les entrées",
       "items": [
-        { "name": "Entrée du jour", "desc": "à consulter sur la petite ardoise… (si elle n’a pas disparu)." },
+        { "name": "Entrée du jour", "desc": "selon le marché, à découvrir sur l’ardoise." },
         { "name": "Tartare de concombre, saumon fumé, raisins" },
         { "name": "Œufs mayonnaise" },
         { "name": "Fromage de tête sauce gribiche" },
@@ -46,7 +46,7 @@
         { "name": "Café gourmand", "desc": "Supp. + 3€ — varie selon l’humeur du chef." },
         { "name": "Gaufre maison", "desc": "Chocolat chaud & chantilly." }
       ],
-      "note": "Produits frais, cuisine maison — on s’excuse si certains plats viennent à manquer (ou si c’est déjà mangé)."
+      "note": "Produits frais, cuisine maison — certains plats peuvent venir à manquer en fin de service."
     }
   ]
 }

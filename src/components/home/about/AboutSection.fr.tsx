@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import styles from "./AboutSection.module.css";
+import { infos } from "@/lib/infos";
 
 export default function AboutSectionFR() {
   return (
@@ -20,10 +21,10 @@ export default function AboutSectionFR() {
           <div className={styles.card}>
             <div className={styles.cardTitle}>À savoir</div>
             <ul className={styles.list}>
-              <li>Produits frais · carte courte</li>
-              <li>Options végétariennes</li>
-              <li>Groupes : appelez-nous</li>
-              <li>Chèques vacances / CB (à adapter)</li>
+              {infos.goodToKnow.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+              {infos.payments ? <li>Paiement : {infos.payments}</li> : null}
             </ul>
           </div>
         </div>

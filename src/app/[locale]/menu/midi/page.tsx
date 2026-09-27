@@ -16,16 +16,21 @@ type MenuData = {
 
 const menu = data as MenuData;
 
-export default function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   return (
     <main className="menuPage">
       <div className="menuShell">
         <div className="menuTabsWrap">
           <div className="menuTabs">
-            <Link className="menuTab" href="/menu/soir-weekend">
+            <Link className="menuTab" href={`/${locale}/menu/soir-weekend`}>
               Carte Soir et week-end
             </Link>
-            <Link className="menuTab menuTabActive" href="/menu/midi">
+            <Link className="menuTab menuTabActive" href={`/${locale}/menu/midi`}>
               Carte Midi
             </Link>
           </div>

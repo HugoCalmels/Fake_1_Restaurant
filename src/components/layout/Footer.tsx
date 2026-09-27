@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: "fr" | "en" }) {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -11,9 +12,11 @@ export default function Footer() {
         <div className={styles.meta}>
           © {new Date().getFullYear()} · Toulouse ·
           <span className={styles.dot}> </span>
-          Site démo ·
+          {locale === "en" ? "Demo website" : "Site démo"} ·
           <span className={styles.dot}> </span>
-          Mentions légales
+          <Link href={`/${locale}/mentions-legales`}>
+            {locale === "en" ? "Legal notice" : "Mentions légales"}
+          </Link>
         </div>
       </div>
     </footer>

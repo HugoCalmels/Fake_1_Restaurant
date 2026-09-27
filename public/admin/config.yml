@@ -81,7 +81,34 @@ collections:
               - { label: "Note de bas", name: "note", widget: "text", required: false }
 
   # =========================
-  # PHOTOS 
+  # INFOS PRATIQUES
+  # =========================
+  - name: "infos"
+    label: "Infos pratiques"
+    files:
+      - name: "infos"
+        label: "Horaires, adresse, contact"
+        file: "content/infos.json"
+        format: "json"
+        fields:
+          - label: "Annonce (bandeau en haut du site)"
+            name: "announcement"
+            widget: "string"
+            required: false
+            hint: "Ex : Fermé exceptionnellement le 15 août. Laisser vide pour ne rien afficher."
+          - { label: "Adresse", name: "address", widget: "string" }
+          - { label: "Téléphone", name: "phoneDisplay", widget: "string" }
+          - { label: "Horaires du midi", name: "lunchHours", widget: "string", hint: "Ex : 12:00–14:00" }
+          - { label: "Horaires du soir", name: "dinnerHours", widget: "string", hint: "Ex : 19:30–22:00" }
+          - { label: "Jours de fermeture", name: "closedDays", widget: "string", required: false }
+          - { label: "Moyens de paiement", name: "payments", widget: "string", required: false }
+          - label: "À savoir"
+            name: "goodToKnow"
+            widget: "list"
+            field: { label: "Ligne", name: "item", widget: "string" }
+
+  # =========================
+  # PHOTOS
   # =========================
   - name: "photos"
     label: "Photos"
