@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import BistrotLogo from "./BistrotLogo";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import { usePathname } from "next/navigation";
@@ -115,14 +115,7 @@ export default function NavbarBase({
     <header className={cx(styles.navbar, show ? styles.visible : styles.hidden)}>
       <div ref={innerRef} className={styles.inner}>
         <Link href={withLocale(locale, "/")} className={styles.brand} onClick={close} aria-label="Accueil">
-          <Image
-            src="/images/bistrot-icon.png"
-            alt="Le Faux Bistrot"
-            width={800}
-            height={400}
-            className={styles.logo}
-            priority
-          />
+          <BistrotLogo className={styles.logoBadge} />
         </Link>
 
         <nav className={styles.nav} aria-label="Navigation principale">

@@ -8,7 +8,7 @@ export default function NavbarEN() {
         menus: "Menus",
         photos: "Photos",
         avis: "Reviews",
-        infos: "Info",
+        infos: "Info/contact",
         reserve: "Book",
         langShort: "EN",
       }}
