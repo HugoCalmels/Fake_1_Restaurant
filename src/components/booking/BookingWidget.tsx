@@ -56,7 +56,8 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
           topTitle: "LE FAUX BISTROT",
           topLang: "EN",
           close: "Close",
-          notice: "Hello — during the summer period we are closed on Saturdays.",
+          notice:
+            "Hello — during the summer period we are closed on Saturdays.",
           covers: (n: number) => `${n} guests`,
           nextAvailability: "Next availability",
           today: "Today",
@@ -67,13 +68,22 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
           dinner: "Dinner",
           book: "Book",
           poweredBy: "Powered by Fakechef",
+          demoTitle: "This is a demo",
+          demoRecap: (n: number, d: string, h: string) =>
+            `${n} guests · ${d} · ${h}`,
+          demoFake:
+            "No table has been booked: this restaurant and its booking module are fictional.",
+          demoReal:
+            "On a real restaurant website, this button opens a genuine booking tool such as Zenchef. It takes a few minutes to set up and fits right into the site, but it is a paid monthly subscription taken out by the restaurant.",
+          demoOk: "Got it",
         }
       : {
           dialogLabel: "Réservation",
           topTitle: "LE FAUX BISTROT",
           topLang: "FR",
           close: "Fermer",
-          notice: "Bonjour durant la période estivale nous sommes fermé les samedis",
+          notice:
+            "Bonjour, durant la période estivale nous sommes fermés le samedi.",
           covers: (n: number) => `${n} couverts`,
           nextAvailability: "Prochaine disponibilité",
           today: "Aujourd’hui",
@@ -84,6 +94,14 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
           dinner: "Dîner",
           book: "Réserver",
           poweredBy: "Rendu possible par Fakechef",
+          demoTitle: "Ceci est une démo",
+          demoRecap: (n: number, d: string, h: string) =>
+            `${n} couvert${n > 1 ? "s" : ""} · ${d} · ${h}`,
+          demoFake:
+            "Aucune table n’a été réservée : ce restaurant et son module de réservation sont fictifs.",
+          demoReal:
+            "Sur le site d’un vrai restaurant, ce bouton ouvre un vrai outil de réservation comme Zenchef. Il s’installe en quelques minutes et s’intègre au site, mais c’est un abonnement mensuel payant, souscrit par le restaurateur.",
+          demoOk: "J’ai compris",
         };
 
   const [present, setPresent] = useState(false);
@@ -94,6 +112,8 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
   const [time, setTime] = useState<string | null>(null);
 
   const [section, setSection] = useState<Section>(null);
+  // Après « Réserver » : écran qui explique que la réservation est fictive
+  const [demoDone, setDemoDone] = useState(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const lastActive = useRef<HTMLElement | null>(null);
@@ -125,6 +145,7 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
     setPhase("open");
     setTime(null);
     setSection(null);
+    setDemoDone(false);
   };
 
   const requestClose = () => {
@@ -176,7 +197,8 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
     requestClose();
   };
 
-  const toggle = (s: Exclude<Section, null>) => setSection((cur) => (cur === s ? null : s));
+  const toggle = (s: Exclude<Section, null>) =>
+    setSection((cur) => (cur === s ? null : s));
 
   const ui = (
     <div
@@ -208,193 +230,229 @@ export default function BookingWidget({ locale }: { locale: "fr" | "en" }) {
           </button>
         </div>
 
-        {/* BODY */}
-        <div className={styles.body}>
-          <div className={styles.notice}>{t.notice}</div>
-
-          {/* Couverts / Guests */}
-          <div className={styles.rowGroup}>
+        {demoDone ? (
+          <div className={styles.demo} role="status">
+            <div className={styles.demoIcon} aria-hidden="true">
+              ✓
+            </div>
+            <p className={styles.demoTitle}>{t.demoTitle}</p>
+            <p className={styles.demoRecap}>
+              {t.demoRecap(covers, dateLabel, time ?? "")}
+            </p>
+            <p className={styles.demoText}>{t.demoFake}</p>
+            <p className={styles.demoText}>{t.demoReal}</p>
             <button
-              className={styles.row}
+              className={styles.cta}
               type="button"
-              onClick={() => toggle("covers")}
-              aria-expanded={section === "covers"}
+              onClick={requestClose}
+              autoFocus
             >
-              <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">
-                  🍴
-                </span>
-                <span className={styles.rowText}>{t.covers(covers)}</span>
-              </span>
-              <FiChevronDown
-                className={styles.chev}
-                data-open={section === "covers"}
-                aria-hidden="true"
-              />
+              {t.demoOk}
             </button>
+          </div>
+        ) : (
+          <>
+            {/* BODY */}
+            <div className={styles.body}>
+              <div className={styles.notice}>{t.notice}</div>
 
-            <div className={styles.accWrap} data-open={section === "covers"}>
-              <div className={styles.accInner}>
-                <div className={styles.keypad}>
-                  {Array.from({ length: 9 }, (_, i) => i + 1).map((n) => (
-                    <button
-                      key={n}
-                      type="button"
-                      className={styles.key}
-                      data-active={covers === n}
-                      onClick={() => setCovers(n)}
-                    >
-                      {n}
-                    </button>
-                  ))}
-                  <button
-                    type="button"
-                    className={styles.key}
-                    onClick={() => setCovers((v) => Math.max(1, v - 1))}
-                  >
-                    –
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.key}
-                    data-active={covers === 0}
-                    onClick={() => setCovers(0)}
-                  >
-                    0
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.key}
-                    onClick={() => setCovers((v) => Math.min(20, v + 1))}
-                  >
-                    +
-                  </button>
+              {/* Couverts / Guests */}
+              <div className={styles.rowGroup}>
+                <button
+                  className={styles.row}
+                  type="button"
+                  onClick={() => toggle("covers")}
+                  aria-expanded={section === "covers"}
+                >
+                  <span className={styles.rowLeft}>
+                    <span className={styles.ico} aria-hidden="true">
+                      🍴
+                    </span>
+                    <span className={styles.rowText}>{t.covers(covers)}</span>
+                  </span>
+                  <FiChevronDown
+                    className={styles.chev}
+                    data-open={section === "covers"}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <div
+                  className={styles.accWrap}
+                  data-open={section === "covers"}
+                >
+                  <div className={styles.accInner}>
+                    <div className={styles.keypad}>
+                      {Array.from({ length: 9 }, (_, i) => i + 1).map((n) => (
+                        <button
+                          key={n}
+                          type="button"
+                          className={styles.key}
+                          data-active={covers === n}
+                          onClick={() => setCovers(n)}
+                        >
+                          {n}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        className={styles.key}
+                        onClick={() => setCovers((v) => Math.max(1, v - 1))}
+                      >
+                        –
+                      </button>
+                      <button
+                        type="button"
+                        className={styles.key}
+                        data-active={covers === 0}
+                        onClick={() => setCovers(0)}
+                      >
+                        0
+                      </button>
+                      <button
+                        type="button"
+                        className={styles.key}
+                        onClick={() => setCovers((v) => Math.min(20, v + 1))}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Date */}
+              <div className={styles.rowGroup}>
+                <button
+                  className={styles.row}
+                  type="button"
+                  onClick={() => toggle("date")}
+                  aria-expanded={section === "date"}
+                >
+                  <span className={styles.rowLeft}>
+                    <span className={styles.ico} aria-hidden="true">
+                      📅
+                    </span>
+                    <span className={styles.rowText}>{dateLabel}</span>
+                  </span>
+                  <FiChevronDown
+                    className={styles.chev}
+                    data-open={section === "date"}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <div className={styles.accWrap} data-open={section === "date"}>
+                  <div className={styles.accInner}>
+                    <div className={styles.subPill}>{t.nextAvailability}</div>
+
+                    <div className={styles.datePills}>
+                      <button
+                        type="button"
+                        className={styles.datePill}
+                        data-active={dateISO === toISODate(today)}
+                        onClick={() => setDateISO(toISODate(today))}
+                      >
+                        <div className={styles.pTop}>
+                          {formatShort(today, locale)}
+                        </div>
+                        <div className={styles.pBot}>{t.today}</div>
+                      </button>
+
+                      <button
+                        type="button"
+                        className={styles.datePill}
+                        data-active={dateISO === toISODate(tomorrow)}
+                        onClick={() => setDateISO(toISODate(tomorrow))}
+                      >
+                        <div className={styles.pTop}>
+                          {formatShort(tomorrow, locale)}
+                        </div>
+                        <div className={styles.pBot}>{t.tomorrow}</div>
+                      </button>
+
+                      <label
+                        className={styles.datePill}
+                        data-active={
+                          !(
+                            dateISO === toISODate(today) ||
+                            dateISO === toISODate(tomorrow)
+                          )
+                        }
+                      >
+                        <div className={styles.pTop}>📆</div>
+                        <div className={styles.pBot}>{t.other}</div>
+                        <input
+                          className={styles.dateInput}
+                          type="date"
+                          value={dateISO}
+                          min={toISODate(new Date())}
+                          onChange={(e) => setDateISO(e.target.value)}
+                          aria-label={t.chooseOtherDate}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Horaire / Time */}
+              <div className={styles.rowGroup}>
+                <button
+                  className={styles.row}
+                  type="button"
+                  onClick={() => toggle("time")}
+                  aria-expanded={section === "time"}
+                >
+                  <span className={styles.rowLeft}>
+                    <span className={styles.ico} aria-hidden="true">
+                      🕘
+                    </span>
+                    <span className={styles.rowText}>{t.time}</span>
+                  </span>
+                  <FiChevronDown
+                    className={styles.chev}
+                    data-open={section === "time"}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <div className={styles.accWrap} data-open={section === "time"}>
+                  <div className={styles.accInner}>
+                    <div className={styles.mealLabel}>{t.dinner}</div>
+                    <div className={styles.timeList}>
+                      {times.map((tt) => (
+                        <button
+                          key={tt}
+                          type="button"
+                          className={styles.timeBtn}
+                          data-active={time === tt}
+                          onClick={() => setTime(tt)}
+                        >
+                          <span className={styles.dot} aria-hidden="true" />
+                          <span className={styles.timeText}>{tt}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Date */}
-          <div className={styles.rowGroup}>
+            {/* BOTTOM */}
             <button
-              className={styles.row}
+              className={styles.cta}
               type="button"
-              onClick={() => toggle("date")}
-              aria-expanded={section === "date"}
+              disabled={!canSubmit}
+              onClick={() => {
+                if (!canSubmit) return;
+                setDemoDone(true);
+              }}
             >
-              <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">
-                  📅
-                </span>
-                <span className={styles.rowText}>{dateLabel}</span>
-              </span>
-              <FiChevronDown
-                className={styles.chev}
-                data-open={section === "date"}
-                aria-hidden="true"
-              />
+              {t.book}
             </button>
-
-            <div className={styles.accWrap} data-open={section === "date"}>
-              <div className={styles.accInner}>
-                <div className={styles.subPill}>{t.nextAvailability}</div>
-
-                <div className={styles.datePills}>
-                  <button
-                    type="button"
-                    className={styles.datePill}
-                    data-active={dateISO === toISODate(today)}
-                    onClick={() => setDateISO(toISODate(today))}
-                  >
-                    <div className={styles.pTop}>{formatShort(today, locale)}</div>
-                    <div className={styles.pBot}>{t.today}</div>
-                  </button>
-
-                  <button
-                    type="button"
-                    className={styles.datePill}
-                    data-active={dateISO === toISODate(tomorrow)}
-                    onClick={() => setDateISO(toISODate(tomorrow))}
-                  >
-                    <div className={styles.pTop}>{formatShort(tomorrow, locale)}</div>
-                    <div className={styles.pBot}>{t.tomorrow}</div>
-                  </button>
-
-                  <label
-                    className={styles.datePill}
-                    data-active={!(dateISO === toISODate(today) || dateISO === toISODate(tomorrow))}
-                  >
-                    <div className={styles.pTop}>📆</div>
-                    <div className={styles.pBot}>{t.other}</div>
-                    <input
-                      className={styles.dateInput}
-                      type="date"
-                      value={dateISO}
-                      min={toISODate(new Date())}
-                      onChange={(e) => setDateISO(e.target.value)}
-                      aria-label={t.chooseOtherDate}
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Horaire / Time */}
-          <div className={styles.rowGroup}>
-            <button
-              className={styles.row}
-              type="button"
-              onClick={() => toggle("time")}
-              aria-expanded={section === "time"}
-            >
-              <span className={styles.rowLeft}>
-                <span className={styles.ico} aria-hidden="true">
-                  🕘
-                </span>
-                <span className={styles.rowText}>{t.time}</span>
-              </span>
-              <FiChevronDown
-                className={styles.chev}
-                data-open={section === "time"}
-                aria-hidden="true"
-              />
-            </button>
-
-            <div className={styles.accWrap} data-open={section === "time"}>
-              <div className={styles.accInner}>
-                <div className={styles.mealLabel}>{t.dinner}</div>
-                <div className={styles.timeList}>
-                  {times.map((tt) => (
-                    <button
-                      key={tt}
-                      type="button"
-                      className={styles.timeBtn}
-                      data-active={time === tt}
-                      onClick={() => setTime(tt)}
-                    >
-                      <span className={styles.dot} aria-hidden="true" />
-                      <span className={styles.timeText}>{tt}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* BOTTOM */}
-        <button
-          className={styles.cta}
-          type="button"
-          disabled={!canSubmit}
-          onClick={() => {
-            if (!canSubmit) return;
-            requestClose();
-          }}
-        >
-          {t.book}
-        </button>
+          </>
+        )}
 
         <div className={styles.footer}>
           <span className={styles.zMark} aria-hidden="true">

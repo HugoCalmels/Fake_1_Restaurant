@@ -376,3 +376,53 @@
   font-weight: 950;
   text-transform: lowercase;
 }
+/* Écran « démo » affiché après Réserver */
+.demo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 4px 4px;
+  text-align: center;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  overflow: auto;
+}
+
+.demoIcon{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.92);
+  color: #6b2f2f;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.demoTitle{
+  margin: 4px 0 0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.demoRecap{
+  margin: 0 0 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.14);
+  border: 1px solid rgba(255,255,255,0.16);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.demoText{
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+
+.demo .cta{
+  margin-top: 8px;
+}
