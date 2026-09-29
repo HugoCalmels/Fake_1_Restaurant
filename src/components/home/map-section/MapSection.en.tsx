@@ -4,6 +4,7 @@ import Container from "@/components/layout/Container";
 import styles from "./MapSection.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
 import { infos, mapsSearchUrl, phoneHref } from "@/lib/infos";
+import { closedDaysText } from "@/lib/opening";
 
 export default function MapSectionEN() {
   return (
@@ -22,6 +23,7 @@ export default function MapSectionEN() {
             <div className={styles.blockTitle}>Hours</div>
             <div className={styles.text}>Lunch {infos.lunchHours}</div>
             <div className={styles.text}>Dinner {infos.dinnerHours}</div>
+            <div className={styles.text}>{closedDaysText(infos.schedule, "en")}</div>
 
             <div className={styles.blockTitle}>Contact</div>
             <a className={styles.link} href={phoneHref(infos.phoneDisplay)}>

@@ -1,4 +1,5 @@
 import data from "../../content/infos.json";
+import type { Schedule } from "./opening";
 
 // Infos pratiques modifiables par le restaurateur dans Decap CMS
 // (collection "Infos pratiques"). Une seule source pour tout le site.
@@ -8,7 +9,7 @@ export type Infos = {
   phoneDisplay: string;
   lunchHours: string;
   dinnerHours: string;
-  closedDays: string;
+  schedule: Schedule;
   payments: string;
   goodToKnow: string[];
 };

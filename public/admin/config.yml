@@ -81,6 +81,27 @@ collections:
               - { label: "Note de bas", name: "note", widget: "text", required: false }
 
   # =========================
+  # PAGE D'ACCUEIL (version française)
+  # =========================
+  - name: "home"
+    label: "Page d’accueil"
+    files:
+      - name: "home"
+        label: "Textes et photo de l’accueil"
+        file: "content/home.json"
+        format: "json"
+        fields:
+          - { label: "Petite ligne au-dessus du nom", name: "heroKicker", widget: "string" }
+          - { label: "Phrase d’accroche", name: "heroSubtitle", widget: "string" }
+          - { label: "Ligne sous les boutons", name: "heroNote", widget: "string", required: false }
+          - { label: "Photo principale", name: "heroImage", widget: "image" }
+          - { label: "Titre de la présentation", name: "aboutTitle", widget: "string" }
+          - label: "Paragraphes de présentation"
+            name: "aboutParagraphs"
+            widget: "list"
+            field: { label: "Paragraphe", name: "paragraph", widget: "text" }
+
+  # =========================
   # INFOS PRATIQUES
   # =========================
   - name: "infos"
@@ -100,7 +121,39 @@ collections:
           - { label: "Téléphone", name: "phoneDisplay", widget: "string" }
           - { label: "Horaires du midi", name: "lunchHours", widget: "string", hint: "Ex : 12:00–14:00" }
           - { label: "Horaires du soir", name: "dinnerHours", widget: "string", hint: "Ex : 19:30–22:00" }
-          - { label: "Jours de fermeture", name: "closedDays", widget: "string", required: false }
+          - label: "Jours d’ouverture"
+            name: "schedule"
+            widget: "object"
+            hint: "Cochez les services ouverts. Le site affiche tout seul « Ouvert ce soir » ou « Fermé aujourd’hui »."
+            fields:
+              - label: "Lundi"
+                name: "monday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Mardi"
+                name: "tuesday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Mercredi"
+                name: "wednesday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Jeudi"
+                name: "thursday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Vendredi"
+                name: "friday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Samedi"
+                name: "saturday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
+              - label: "Dimanche"
+                name: "sunday"
+                widget: "object"
+                fields: [{ label: "Midi", name: "lunch", widget: "boolean", default: true }, { label: "Soir", name: "dinner", widget: "boolean", default: true }]
           - { label: "Moyens de paiement", name: "payments", widget: "string", required: false }
           - label: "À savoir"
             name: "goodToKnow"

@@ -4,7 +4,15 @@
   "phoneDisplay": "05 36 49 00 00",
   "lunchHours": "12:00–14:00",
   "dinnerHours": "19:30–22:00",
-  "closedDays": "Fermé le dimanche soir et le lundi",
+  "schedule": {
+    "monday": { "lunch": true, "dinner": true },
+    "tuesday": { "lunch": true, "dinner": true },
+    "wednesday": { "lunch": true, "dinner": true },
+    "thursday": { "lunch": true, "dinner": true },
+    "friday": { "lunch": true, "dinner": true },
+    "saturday": { "lunch": false, "dinner": true },
+    "sunday": { "lunch": false, "dinner": false }
+  },
   "payments": "Carte bancaire, espèces, tickets restaurant",
   "goodToKnow": [
     "Produits frais, carte courte qui change souvent",

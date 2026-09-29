@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import styles from "./AboutSection.module.css";
 import { infos } from "@/lib/infos";
+import home from "../../../../content/home.json";
 
 export default function AboutSectionFR() {
   return (
@@ -8,14 +9,12 @@ export default function AboutSectionFR() {
       <Container>
         <div className={styles.grid}>
           <div>
-            <h2 className={styles.title}>Un bistrot, comme on aime.</h2>
-            <p className={styles.p}>
-              Une cuisine simple mais précise, qui bouge avec les saisons. Le midi : rapide et
-              généreux. Le soir : plus gourmand, à partager, avec une belle sélection de vins.
-            </p>
-            <p className={styles.p}>
-              Ici, on vient pour bien manger, pour discuter, et pour se sentir “chez soi”.
-            </p>
+            <h2 className={styles.title}>{home.aboutTitle}</h2>
+            {home.aboutParagraphs.map((paragraph) => (
+              <p key={paragraph} className={styles.p}>
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           <div className={styles.card}>

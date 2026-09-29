@@ -2,6 +2,7 @@ import Container from "@/components/layout/Container";
 import styles from "./InfoBar.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
 import { infos, phoneHref } from "@/lib/infos";
+import OpenToday from "./OpenToday";
 
 export default function InfobarEN() {
   return (
@@ -9,10 +10,7 @@ export default function InfobarEN() {
       <Container>
         <div className={styles.bar}>
           <div className={styles.item}>
-            <div className={styles.kicker}>Opening hours</div>
-            <div className={styles.value}>
-              {infos.lunchHours} · {infos.dinnerHours}
-            </div>
+            <OpenToday locale="en" />
           </div>
 
           <div className={styles.divider} />

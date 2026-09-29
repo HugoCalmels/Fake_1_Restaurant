@@ -92,6 +92,40 @@
   color: var(--brand);
 }
 
+/* Liens plus affirmés + soulignement bordeaux (survol et page active) */
+.link,
+.dropButton {
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 0;
+}
+
+.link::after,
+.dropButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.link:hover::after,
+.dropButton:hover::after,
+.active::after {
+  transform: scaleX(1);
+}
+
+.active {
+  color: var(--brand);
+}
+
 .chevronIcon {
   width: 14px;
   height: 14px;
@@ -222,14 +256,75 @@
   color: var(--brand);
 }
 
+/* Menu burger (mobile/tablette) */
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-strong);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px clamp(12px, 3vw, 24px) 18px;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 16px 24px rgba(0,0,0,0.08);
+}
+
+.mobileGroup {
+  padding: 12px 0 4px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.mobileLink {
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.mobileSub {
+  padding-left: 12px;
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.mobileActive {
+  color: var(--brand);
+}
+
 @media (max-width: 900px) {
-  .link { display: none; }
-  .nav { gap: 14px; }
+  .nav { display: none; }
+  .burger { display: inline-flex; }
 }
 
 @media (max-width: 560px) {
-  .dropButton{ display: none; }
-  .logo{ width: 40px; height: 40px; }
+  .logo { height: 38px; }
+  .reserveBtn { padding: 10px 11px; }
 }
 
 .link,
