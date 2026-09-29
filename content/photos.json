@@ -1,35 +1,173 @@
 {
-  "intro": "Une salle à l’ancienne, une cuisine faite maison et des assiettes qui changent avec le marché. Un aperçu avant de venir.",
-  "photos": [
+  "intro": "Tout est fait maison, avec les produits du marché. Voici les assiettes dont on est le plus fiers, la salle qui les accueille et les coulisses de la cuisine.",
+  "albums": [
     {
-      "src": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Le comptoir et la salle",
-      "caption": "Le comptoir, où tout commence : un verre en attendant sa table, ou un café avant de repartir."
+      "title": "Nos plats",
+      "description": "Les grands classiques du bistrot, cuisinés ici chaque jour. La carte bouge avec les saisons, ces plats-là restent.",
+      "photos": [
+        {
+          "src": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Bavette, frites maison",
+          "caption": "Notre plat le plus commandé : une bavette saisie à la plancha et des frites coupées au couteau le matin même.",
+          "signature": true
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Côte de bœuf pour deux",
+          "caption": "1,1 kg, maturée chez notre boucher, grillée puis tranchée devant vous. À partager, forcément.",
+          "signature": true
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1432139509613-5c4255815697?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Faux-filet, jus au vin rouge",
+          "caption": "Un faux-filet bien persillé, son jus réduit au vin rouge et des légumes verts de saison."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Filet mignon, pommes rôties",
+          "caption": "Filet mignon de porc doré au beurre, pommes grenaille rôties au thym et brocolis croquants."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1602253057119-44d745d9b860?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Manchons de canard laqués au miel",
+          "caption": "Confits doucement pendant des heures, puis laqués au miel et aux épices juste avant de servir."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Le poisson du jour",
+          "caption": "Selon l’arrivage du matin, cuit sur la peau et servi avec des légumes du marché et un trait de citron vert."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Saumon en cocotte, crème d’épinards",
+          "caption": "Servi dans sa cocotte en fonte, directement du four à la table."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Riz aux gambas",
+          "caption": "Un riz crémeux, gambas snackées et coulis de crustacés maison. Le plat du soir qui part en premier.",
+          "signature": true
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Parillade de la mer",
+          "caption": "Poissons et gambas grillés suivant l’arrivage, sauce maison et pain de campagne."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Assiettes à partager",
+          "caption": "Viandes grillées, légumes de saison et sauces maison, en grandes assiettes à partager."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=2000&q=80",
+          "alt": "La salade du Faux Bistrot",
+          "caption": "Saumon rôti, œuf mollet, crudités croquantes : la salade complète du midi, qui change avec le marché."
+        }
+      ]
     },
     {
-      "src": "https://images.unsplash.com/photo-1551529834-525807d6b4f3?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Tables en bois près des fenêtres",
-      "caption": "Les tables côté fenêtres, les plus demandées le midi. Pensez à le préciser en réservant."
+      "title": "Desserts",
+      "description": "Pâtisserie maison, montée à la minute quand c’est possible.",
+      "photos": [
+        {
+          "src": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Panna cotta aux fraises",
+          "caption": "Vanille de Madagascar, fraises de Garonne en saison. Prise le matin, servie le soir.",
+          "signature": true
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Tiramisu de la maison",
+          "caption": "Mascarpone, café serré et un peu de patience : il repose une nuit entière avant d’être servi."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Coupe chocolat chantilly",
+          "caption": "Chocolat chaud coulé à la dernière seconde, chantilly montée maison et éclats de biscuit."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Framboisier",
+          "caption": "Le gâteau de l’été, tant qu’il y a des framboises au marché."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Les mignardises du café gourmand",
+          "caption": "Macarons et petites douceurs, pour ceux qui n’arrivent jamais à choisir un seul dessert."
+        }
+      ]
     },
     {
-      "src": "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=2200&q=80",
-      "alt": "La grande salle",
-      "caption": "La grande salle accueille les groupes et les repas de famille, jusqu’à 30 personnes."
+      "title": "La salle",
+      "description": "Une trentaine de couverts, un comptoir en bois et des tables où l’on prend son temps.",
+      "photos": [
+        {
+          "src": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Le comptoir et la salle",
+          "caption": "Le comptoir, où tout commence : un verre en attendant sa table, ou un café avant de repartir."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1551529834-525807d6b4f3?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Tables en bois près des fenêtres",
+          "caption": "Les tables côté fenêtres, les plus demandées le midi. Pensez à le préciser en réservant."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=2000&q=80",
+          "alt": "La grande salle",
+          "caption": "La grande salle accueille les groupes et les repas de famille, jusqu’à 30 personnes."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Table dressée pour le service du soir",
+          "caption": "Le soir, lumière tamisée et carte plus gourmande."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Les grandes tablées",
+          "caption": "Anniversaires, pots de départ, repas entre amis : on rapproche les tables et on s’occupe du reste."
+        }
+      ]
     },
     {
-      "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Assiettes à partager",
-      "caption": "Viandes grillées, légumes de saison et sauces maison, servis en grandes assiettes à partager."
-    },
-    {
-      "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2200&q=80",
-      "alt": "En cuisine, préparation des légumes",
-      "caption": "Tout est préparé ici, chaque matin, à partir des produits arrivés du marché."
-    },
-    {
-      "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Table dressée pour le service du soir",
-      "caption": "Le soir, lumière tamisée et carte plus gourmande, avec une belle sélection de vins."
+      "title": "En cuisine et à la cave",
+      "description": "Les coulisses : le coup de feu, les produits et les vins qu’on aime servir.",
+      "photos": [
+        {
+          "src": "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Le coup de feu",
+          "caption": "20 h 30, toutes les tables sont servies en même temps. C’est là que tout se joue."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Le dressage",
+          "caption": "Chaque assiette est vérifiée au passe avant de partir en salle."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Préparation des légumes",
+          "caption": "Tout est préparé ici, chaque matin, à partir des produits arrivés du marché."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1606914469633-bd39206ea739?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Les épices",
+          "caption": "Piment d’Espelette, curcuma, poivres : les épices qui relèvent nos sauces maison."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Les vins de la région",
+          "caption": "Gaillac, Fronton, Cahors : une carte courte, choisie chez des vignerons du Sud-Ouest."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=80",
+          "alt": "Au verre ou à la bouteille",
+          "caption": "Tous nos vins sont aussi servis au verre. Demandez-nous conseil, on adore en parler."
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=2000&q=80",
+          "alt": "L’apéritif au comptoir",
+          "caption": "Un verre au comptoir avant de passer à table, c’est aussi ça, le bistrot."
+        }
+      ]
     }
   ]
 }

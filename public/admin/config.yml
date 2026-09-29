@@ -172,12 +172,23 @@ collections:
         format: "json"
         fields:
           - { label: "Texte d’introduction", name: "intro", widget: "text", required: false }
-          - label: "Photos"
-            name: "photos"
+          - label: "Albums"
+            name: "albums"
             widget: "list"
-            summary: "{{fields.alt}}"
-            hint: "La première photo s’affiche en grand en haut de la page. Faites glisser pour changer l’ordre."
+            summary: "{{fields.title}}"
+            collapsed: true
+            hint: "Ex : Nos plats, Desserts, La salle. Chaque album devient un filtre sur la page. Faites glisser pour changer l’ordre."
             fields:
-              - { label: "Image", name: "src", widget: "image" }
-              - { label: "Titre", name: "alt", widget: "string", hint: "Court, ex : La grande salle" }
-              - { label: "Description", name: "caption", widget: "text", required: false }
+              - { label: "Nom de l’album", name: "title", widget: "string" }
+              - { label: "Petit texte sous le nom", name: "description", widget: "text", required: false }
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                collapsed: true
+                hint: "La toute première photo du premier album s’affiche en grand en haut de la page."
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Titre", name: "alt", widget: "string", hint: "Court, ex : Côte de bœuf pour deux" }
+                  - { label: "Description", name: "caption", widget: "text", required: false, hint: "Une ou deux phrases : ce qui rend ce plat ou ce lieu spécial." }
+                  - { label: "Coup de cœur du chef", name: "signature", widget: "boolean", required: false, default: false, hint: "Affiche la photo en plus grand avec un badge. À réserver à 2 ou 3 plats par album." }
