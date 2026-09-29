@@ -2,27 +2,27 @@
   "photos": [
     {
       "src": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Salle – ambiance bistrot"
+      "alt": "Le comptoir et la salle"
     },
     {
       "src": "https://images.unsplash.com/photo-1551529834-525807d6b4f3?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Banquettes & bois"
+      "alt": "Tables en bois près des fenêtres"
     },
     {
       "src": "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Assiette – cuisine de saison"
+      "alt": "La grande salle"
     },
     {
       "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Dessert – gourmandise"
+      "alt": "Assiettes à partager"
     },
     {
       "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Verres & table dressée"
+      "alt": "En cuisine, préparation des légumes"
     },
     {
-      "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
-      "alt": "Ambiance – service du soir"
+      "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=80",
+      "alt": "Table dressée pour le service du soir"
     }
   ]
 }

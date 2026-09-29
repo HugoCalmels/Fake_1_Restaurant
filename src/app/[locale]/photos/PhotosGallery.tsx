@@ -82,8 +82,12 @@ export default function PhotosGallery({ locale }: { locale: "fr" | "en" }) {
             <img
               className={styles.thumb}
               src={sized(p.src, 800)}
+              srcSet={`${sized(p.src, 400)} 400w, ${sized(p.src, 800)} 800w`}
+              sizes="(max-width: 700px) 100vw, 380px"
               alt={p.alt}
-              loading="lazy"
+              // Les 3 premières sont visibles dès l'arrivée : chargées en priorité
+              loading={idx < 3 ? "eager" : "lazy"}
+              fetchPriority={idx < 3 ? "high" : "auto"}
               decoding="async"
             />
           </button>

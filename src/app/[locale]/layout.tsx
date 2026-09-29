@@ -53,6 +53,10 @@ export default async function RootLayout({
 
   return (
     <html lang={l} className={`${fontSans.variable} ${fontDisplay.variable}`}>
+      <head>
+        {/* Photos de démo hébergées sur Unsplash : connexion ouverte dès le départ */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+      </head>
       <body>
         <BookingProvider>
           <Navbar locale={l} />

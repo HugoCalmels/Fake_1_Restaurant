@@ -58,6 +58,7 @@
   height: 240px;
   object-fit: cover;
   display: block;
+  background: #e9e1d6; /* teinte chaude visible le temps du chargement */
 }
 
 .overlay{
