@@ -171,10 +171,13 @@ collections:
         file: "content/photos.json"
         format: "json"
         fields:
+          - { label: "Texte d’introduction", name: "intro", widget: "text", required: false }
           - label: "Photos"
             name: "photos"
             widget: "list"
             summary: "{{fields.alt}}"
+            hint: "La première photo s’affiche en grand en haut de la page. Faites glisser pour changer l’ordre."
             fields:
               - { label: "Image", name: "src", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string" }
+              - { label: "Titre", name: "alt", widget: "string", hint: "Court, ex : La grande salle" }
+              - { label: "Description", name: "caption", widget: "text", required: false }

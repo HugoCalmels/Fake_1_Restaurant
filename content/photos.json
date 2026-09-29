@@ -1,28 +1,35 @@
 {
+  "intro": "Une salle à l’ancienne, une cuisine faite maison et des assiettes qui changent avec le marché. Un aperçu avant de venir.",
   "photos": [
     {
       "src": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Le comptoir et la salle"
+      "alt": "Le comptoir et la salle",
+      "caption": "Le comptoir, où tout commence : un verre en attendant sa table, ou un café avant de repartir."
     },
     {
       "src": "https://images.unsplash.com/photo-1551529834-525807d6b4f3?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Tables en bois près des fenêtres"
+      "alt": "Tables en bois près des fenêtres",
+      "caption": "Les tables côté fenêtres, les plus demandées le midi. Pensez à le préciser en réservant."
     },
     {
       "src": "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=2200&q=80",
-      "alt": "La grande salle"
+      "alt": "La grande salle",
+      "caption": "La grande salle accueille les groupes et les repas de famille, jusqu’à 30 personnes."
     },
     {
       "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Assiettes à partager"
+      "alt": "Assiettes à partager",
+      "caption": "Viandes grillées, légumes de saison et sauces maison, servis en grandes assiettes à partager."
     },
     {
       "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2200&q=80",
-      "alt": "En cuisine, préparation des légumes"
+      "alt": "En cuisine, préparation des légumes",
+      "caption": "Tout est préparé ici, chaque matin, à partir des produits arrivés du marché."
     },
     {
       "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=80",
-      "alt": "Table dressée pour le service du soir"
+      "alt": "Table dressée pour le service du soir",
+      "caption": "Le soir, lumière tamisée et carte plus gourmande, avec une belle sélection de vins."
     }
   ]
 }
