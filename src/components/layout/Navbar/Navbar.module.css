@@ -53,23 +53,6 @@
   object-fit: contain;
 }
 
-/* Logo "enseigne" rond (BistrotLogo.tsx), légèrement débordant de la barre */
-.logoBadge {
-  display: block;
-  width: 84px;
-  height: 84px;
-  margin-top: 26px; /* dépasse sous la barre, comme une enseigne suspendue */
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
-}
-
-@media (max-width: 560px) {
-  .logoBadge {
-    width: 62px;
-    height: 62px;
-    margin-top: 14px;
-  }
-}
-
 .nav {
   display: flex;
   align-items: center;
