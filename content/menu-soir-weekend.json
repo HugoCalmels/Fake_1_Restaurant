@@ -1,6 +1,6 @@
 {
   "title": "Carte Soir et week-end",
-  "intro": "Nos plats « canailles » changent au fil de la semaine, selon le marché. Tous nos plats sont servis au choix avec salade, frites maison ou risotto.",
+  "intro": "Nous vous proposons également nos plats canailles qui changent tout au long de la semaine. Pensez à réserver ! Tous nos plats sont accompagnés au choix de salade, frites maison, risotto…",
   "tabs": {
     "active": "soir",
     "midiLabel": "Carte Midi",
@@ -15,49 +15,51 @@
       "title": "Les entrées",
       "sub": "Entrée du jour",
       "items": [
-        { "name": "Entrée du jour", "desc": "à consulter sur la petite ardoise… (si elle n’est pas déjà prise en photo)." },
-        { "name": "Tartare de saumon aux herbes fines" },
-        { "name": "Cassolette d’Escargots" },
+        { "name": "Tartare de saumon aux fines herbes" },
+        { "name": "Cassolette d’escargots" },
         { "name": "Camembert rôti", "desc": "150 g" },
         { "name": "Œuf mayonnaise du Faux Bistrot" },
         { "name": "Fromage de tête sauce gribiche" },
-        { "name": "Salade du “Bistrot” (version remix)", "desc": "Mesclun, piquillos, gésiers, mozzarella & aubergine farcie — ingrédients susceptibles de changer selon l’arrivage." }
+        { "name": "Salade du Faux Bistrot", "desc": "Mesclun, piquillos, gésiers, mozzarella et aubergine farcie au fromage frais et chorizo. Les ingrédients peuvent changer en fonction de notre arrivage quotidien de légumes." },
+        { "name": "Entrée du jour", "desc": "À consulter sur la petite ardoise…" }
       ]
     },
     {
       "title": "Les plats",
       "sub": "Plat du jour",
       "items": [
-        { "name": "Nos plats canailles", "desc": "Supp 3€ — varie selon les jours : lundi “langue”, mardi “foie”, mercredi “rognon”… (promis, c’est fake)." },
-        { "name": "Épaule d’agneau confite au jus court", "desc": "Supp 4€" },
-        { "name": "Suggestion du jour", "desc": "Un plat cuisiné selon l’envie du chef… ou selon l’envie du frigo." },
+        { "name": "Nos plats canailles", "desc": "Supp. 3 €. Ne vous trompez pas de jour… Lundi : langue de veau, mardi : foie de veau, mercredi : rognon de veau, jeudi : tête de veau ravigote, vendredi : tripes à la provençale." },
+        { "name": "Épaule d’agneau confite au jus de cuisson", "desc": "Supp. 4 €" },
+        { "name": "Suggestion du jour", "desc": "Un plat cuisiné selon l’envie du chef, à consulter sur la petite ardoise…" },
         { "name": "Tartare de bœuf" },
-        { "name": "Risotto de gambas", "desc": "Coulis de crustacés — supp 3€" },
-        { "name": "Accompagnements", "desc": "Tous nos plats sont accompagnés au choix : salade, frites maison, risotto, légumes de saison…" }
+        { "name": "Risotto de gambas au coulis de crustacés", "desc": "Supp. 3 €" },
+        { "name": "Accompagnements", "desc": "Tous nos plats sont accompagnés au choix de salade, frites maison, risotto, légumes de saison…" }
       ]
     },
     {
       "title": "Les grillades",
       "items": [
-        { "name": "Magret de canard grillé", "desc": "supplément de 3€" },
-        { "name": "Faux filet" },
-        { "name": "Côte de bœuf pour 2 personnes", "desc": "1kg100 — sup. 10€ / pers" },
-        { "name": "Parillade de la mer", "desc": "Gambas & poissons “suivant arrivage” — supp 3€" },
-        { "name": "Différentes sauces", "desc": "Roquefort, poivre… supplément sauce 1,00€ — sauces maison (quand on a le temps)." }
+        { "name": "Magret de canard grillé", "desc": "Supp. 3 €" },
+        { "name": "Faux-filet" },
+        { "name": "Côte de bœuf pour 2 personnes", "desc": "1,1 kg. Supp. 10 € / pers." },
+        { "name": "Parillade de la mer", "desc": "Gambas et poissons suivant arrivage, n’hésitez pas à demander à votre arrivée. Supp. 3 €" },
+        { "name": "Accompagnements", "desc": "Tous nos plats sont accompagnés au choix de salade, frites maison, risotto…" },
+        { "name": "Sauces", "desc": "Différentes sauces vous sont proposées pour accompagner vos grillades : roquefort, poivre… N’hésitez pas à demander ! Tout supplément de sauce vous sera facturé 1,00 €. Nos sauces sont faites maison et préparées au jour le jour." }
       ]
     },
     {
       "title": "Les desserts",
       "items": [
-        { "name": "Profiteroles au chocolat" },
+        { "name": "Profiteroles maison au chocolat chaud" },
         { "name": "Crème brûlée" },
-        { "name": "Panacotta maison", "desc": "Coulis au choix : café, chocolat ou fruits rouges (selon le mood)." },
-        { "name": "Coupe \"Colonel\"", "desc": "Sorbet citron & (peut-être) vodka." },
-        { "name": "Café gourmand", "desc": "Supp. + 3€ — varie selon l’humeur du chef." },
-        { "name": "Gaufre maison", "desc": "Chocolat chaud & chantilly." },
-        { "name": "Dessert du jour", "desc": "Selon l’envie du chef — à demander directement !" }
+        { "name": "Panna cotta maison et son coulis", "desc": "Coulis au choix : café, chocolat ou fruits rouges" },
+        { "name": "Coupe Colonel", "desc": "Sorbet citron et vodka" },
+        { "name": "Café gourmand", "desc": "Supp. 3 €. Notre café gourmand est composé d’une variété de desserts maison présents dans le menu. Cela peut varier en fonction de l’humeur du chef…" },
+        { "name": "Gaufre maison", "desc": "Chocolat chaud et chantilly" },
+        { "name": "Baba au rhum" },
+        { "name": "Dessert du jour", "desc": "Selon l’envie du chef, à demander directement !" }
       ],
-      "note": "Nous travaillons avec des produits frais — certains plats peuvent venir à manquer en fin de service."
+      "note": "Nous travaillons avec des produits frais, nous tenons à nous excuser si certains produits viennent à manquer."
     }
   ]
 }

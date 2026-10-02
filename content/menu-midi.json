@@ -1,6 +1,6 @@
 {
   "title": "Carte Midi",
-  "intro": "Nos plats « canailles » changent au fil de la semaine, selon le marché. Pensez à réserver, la salle se remplit vite.",
+  "intro": "Nous vous proposons également nos plats canailles qui changent tout au long de la semaine, avec un supplément de 3 € : lundi langue de veau, mardi foie de veau, mercredi rognon de veau, jeudi tête de veau ravigote, vendredi tripes à la provençale. Pensez à réserver !",
   "tabs": {
     "active": "midi",
     "midiLabel": "Carte Midi",
@@ -8,45 +8,45 @@
   },
   "formules": [
     { "label": "PLAT", "price": "13,50 EUR" },
-    { "label": "ENTREE PLAT OU PLAT DESSERT", "price": "17,50 EUR" },
-    { "label": "ENTREE PLAT DESSERT", "price": "20,50 EUR" }
+    { "label": "ENTRÉE PLAT OU PLAT DESSERT", "price": "17,50 EUR" },
+    { "label": "ENTRÉE PLAT DESSERT", "price": "20,50 EUR" }
   ],
   "sections": [
     {
       "title": "Les entrées",
       "items": [
-        { "name": "Entrée du jour", "desc": "selon le marché, à découvrir sur l’ardoise." },
+        { "name": "Entrée du jour", "desc": "À consulter sur la petite ardoise…" },
         { "name": "Tartare de concombre, saumon fumé, raisins" },
         { "name": "Œufs mayonnaise" },
         { "name": "Fromage de tête sauce gribiche" },
-        { "name": "Salade du Faux Bistrot", "desc": "Mesclun, piquillos, gésiers, mozzarella & aubergine farcie — ça change selon l’arrivage quotidien." },
+        { "name": "Salade du Faux Bistrot", "desc": "Mesclun, piquillos, gésiers, mozzarella et aubergine farcie au fromage frais et chorizo. Les ingrédients peuvent changer en fonction de notre arrivage quotidien de légumes." },
         { "name": "Salade de chèvre chaud et miel" }
       ]
     },
     {
       "title": "Les plats",
       "items": [
-        { "name": "Nos plats Canailles", "desc": "suivant arrivage et jour — Supp 3€ (lundi langue, mardi foie… ou l’inverse, personne ne vérifie)." },
-        { "name": "Suggestion du jour", "desc": "à consulter sur la petite ardoise… ou à deviner." },
-        { "name": "Bavette d’Aloyau" },
+        { "name": "Nos plats canailles", "desc": "Suivant arrivage et jour. Supp. 3 €. Lundi : langue de veau, mardi : foie de veau, mercredi : rognon de veau, jeudi : tête de veau ravigote, vendredi : tripes à la provençale." },
+        { "name": "Suggestion du jour", "desc": "À consulter sur la petite ardoise…" },
+        { "name": "Bavette d’aloyau" },
         { "name": "Manchon de canard confit" },
         { "name": "Tartare de bœuf" },
-        { "name": "Poisson", "desc": "Sole “meunière-ish”." },
-        { "name": "Filet mignon de porc", "desc": "Sauce forestière." },
+        { "name": "Poisson", "desc": "Sole meunière" },
+        { "name": "Filet mignon de porc", "desc": "Sauce forestière" },
         { "name": "Accompagnements", "desc": "Salade, frites maison, risotto, légumes de saison… au choix" },
-        { "name": "Suppléments", "desc": "Toute demande de supplément sauce roquefort/poivre ou frites maison : 1,00€ (même en démo)." }
+        { "name": "Suppléments", "desc": "Toute demande de supplément de sauce roquefort, sauce au poivre ou frites maison vous sera facturée 1,00 €." }
       ]
     },
     {
       "title": "Les desserts",
       "items": [
         { "name": "Profiteroles au chocolat" },
-        { "name": "Panna cotta", "desc": "Différents parfums vous seront proposés (selon le placard)." },
-        { "name": "Crème brulée" },
-        { "name": "Café gourmand", "desc": "Supp. + 3€ — varie selon l’humeur du chef." },
-        { "name": "Gaufre maison", "desc": "Chocolat chaud & chantilly." }
+        { "name": "Panna cotta", "desc": "Différents parfums vous seront proposés." },
+        { "name": "Crème brûlée" },
+        { "name": "Café gourmand", "desc": "Supp. 3 €. Notre café gourmand est composé d’une variété de desserts maison présents dans le menu. Cela peut varier en fonction de l’humeur du chef…" },
+        { "name": "Gaufre maison", "desc": "Chocolat chaud et chantilly" }
       ],
-      "note": "Produits frais, cuisine maison — certains plats peuvent venir à manquer en fin de service."
+      "note": "Nous travaillons avec des produits frais, nous tenons à nous excuser si certains produits viennent à manquer."
     }
   ]
 }
