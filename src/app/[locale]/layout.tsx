@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import "../../styles/global.css";
 import "../../styles/theme.css";
 
@@ -49,7 +50,9 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const l: "fr" | "en" = locale === "en" ? "en" : "fr";
+  // next.config.ts n'envoie ici que "fr" ou "en" : le reste n'existe pas.
+  if (locale !== "fr" && locale !== "en") notFound();
+  const l: "fr" | "en" = locale;
 
   return (
     <html lang={l} className={`${fontSans.variable} ${fontDisplay.variable}`}>

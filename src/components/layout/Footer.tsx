@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { localePath } from "@/lib/i18n";
 
 export default function Footer({ locale }: { locale: "fr" | "en" }) {
   return (
@@ -14,7 +15,7 @@ export default function Footer({ locale }: { locale: "fr" | "en" }) {
           <span className={styles.dot}> </span>
           {locale === "en" ? "Demo website" : "Site démo"} ·
           <span className={styles.dot}> </span>
-          <Link href={`/${locale}/mentions-legales`}>
+          <Link href={localePath(locale, "/mentions-legales")}>
             {locale === "en" ? "Legal notice" : "Mentions légales"}
           </Link>
         </div>

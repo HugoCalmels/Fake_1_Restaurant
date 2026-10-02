@@ -8,10 +8,6 @@ const highlights = [
   { title: "Desserts", desc: "Bistro classics with a twist." },
 ];
 
-function withLocale(locale: "en", href: string) {
-  return `/${locale}${href}`;
-}
-
 export default function MenuTeaserEN() {
   return (
     <section className={styles.section}>
@@ -23,7 +19,7 @@ export default function MenuTeaserEN() {
           </p>
           <Link
             className={styles.cta}
-            href={withLocale("en", "/menu/soir-weekend")}
+            href="/en/menu/soir-weekend"
           >
             View the menu
           </Link>

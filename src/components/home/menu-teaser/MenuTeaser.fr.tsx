@@ -31,7 +31,7 @@ export default function MenuTeaserFR() {
         <div className={styles.head}>
           <h2 className={styles.title}>La carte</h2>
           <p className={styles.sub}>Des plats de saison, une carte qui change souvent.</p>
-          <Link className={styles.cta} href="/fr/menu/soir-weekend">
+          <Link className={styles.cta} href="/menu/soir-weekend">
             Voir toute la carte
           </Link>
         </div>

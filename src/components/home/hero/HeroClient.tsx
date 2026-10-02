@@ -6,13 +6,9 @@ import styles from "./Hero.module.css";
 import { useEffect, useRef } from "react";
 import type { HeroContent } from "./Hero";
 import BookingTrigger from "@/components/booking/BookingTrigger";
+import { localePath } from "@/lib/i18n";
 
 export const HERO_EVENT = "hero:metrics";
-
-function withLocale(locale: "fr" | "en", href: string) {
-  if (!href.startsWith("/")) return `/${locale}/${href}`;
-  return `/${locale}${href === "/" ? "" : href}`;
-}
 
 export default function HeroClient({
   locale,
@@ -80,7 +76,7 @@ export default function HeroClient({
               {content.secondaryCtaLabel && content.secondaryCtaHref && (
                 <Link
                   className={styles.secondary}
-                  href={withLocale(locale, content.secondaryCtaHref)}
+                  href={localePath(locale, content.secondaryCtaHref)}
                 >
                   {content.secondaryCtaLabel}
                 </Link>

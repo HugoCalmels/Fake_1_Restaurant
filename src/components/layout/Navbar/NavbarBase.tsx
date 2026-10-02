@@ -7,26 +7,13 @@ import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
+import { localePath, switchLocalePath } from "@/lib/i18n";
 
 type MenuItem = { label: string; href: string };
 type OpenPanel = null | "menu" | "lang" | "mobile";
 
 function cx(...parts: Array<string | false | undefined>) {
   return parts.filter(Boolean).join(" ");
-}
-
-function withLocale(locale: "fr" | "en", href: string) {
-  if (!href.startsWith("/")) return `/${locale}/${href}`;
-  return `/${locale}${href === "/" ? "" : href}`;
-}
-
-function switchLocaleInPath(pathname: string, nextLocale: "fr" | "en") {
-  const parts = pathname.split("/");
-  if (parts.length > 1 && (parts[1] === "fr" || parts[1] === "en")) {
-    parts[1] = nextLocale;
-    return parts.join("/") || "/";
-  }
-  return `/${nextLocale}${pathname === "/" ? "" : pathname}`;
 }
 
 export default function NavbarBase({
@@ -102,7 +89,7 @@ export default function NavbarBase({
   const toggle = (panel: Exclude<OpenPanel, null>) =>
     setOpen((current) => (current === panel ? null : panel));
 
-  const isActive = (href: string) => pathname.startsWith(withLocale(locale, href));
+  const isActive = (href: string) => pathname.startsWith(localePath(locale, href));
   const menusActive = pathname.includes("/menu/");
 
   const pageLinks = [
@@ -114,7 +101,7 @@ export default function NavbarBase({
   return (
     <header className={cx(styles.navbar, show ? styles.visible : styles.hidden)}>
       <div ref={innerRef} className={styles.inner}>
-        <Link href={withLocale(locale, "/")} className={styles.brand} onClick={close} aria-label="Accueil">
+        <Link href={localePath(locale, "/")} className={styles.brand} onClick={close} aria-label="Accueil">
           <BistrotLogo className={styles.logo} />
         </Link>
 
@@ -139,7 +126,7 @@ export default function NavbarBase({
                 {menuItems.map((it) => (
                   <Link
                     key={it.href}
-                    href={withLocale(locale, it.href)}
+                    href={localePath(locale, it.href)}
                     className={styles.dropItem}
                     role="menuitem"
                     onClick={close}
@@ -154,7 +141,7 @@ export default function NavbarBase({
           {pageLinks.map((link) => (
             <Link
               key={link.href}
-              href={withLocale(locale, link.href)}
+              href={localePath(locale, link.href)}
               className={cx(styles.link, isActive(link.href) && styles.active)}
               aria-current={isActive(link.href) ? "page" : undefined}
               onClick={close}
@@ -186,10 +173,10 @@ export default function NavbarBase({
 
             {open === "lang" && (
               <div className={cx(styles.dropMenu, styles.langMenu)} role="menu">
-                <Link className={styles.dropItemBtn} href={switchLocaleInPath(pathname, "fr")} onClick={close} role="menuitem">
+                <Link className={styles.dropItemBtn} href={switchLocalePath(pathname, "fr")} onClick={close} role="menuitem">
                   FR
                 </Link>
-                <Link className={styles.dropItemBtn} href={switchLocaleInPath(pathname, "en")} onClick={close} role="menuitem">
+                <Link className={styles.dropItemBtn} href={switchLocalePath(pathname, "en")} onClick={close} role="menuitem">
                   EN
                 </Link>
               </div>
@@ -214,7 +201,7 @@ export default function NavbarBase({
             {menuItems.map((it) => (
               <Link
                 key={it.href}
-                href={withLocale(locale, it.href)}
+                href={localePath(locale, it.href)}
                 className={cx(styles.mobileLink, styles.mobileSub, isActive(it.href) && styles.mobileActive)}
                 onClick={close}
               >
@@ -224,7 +211,7 @@ export default function NavbarBase({
             {pageLinks.map((link) => (
               <Link
                 key={link.href}
-                href={withLocale(locale, link.href)}
+                href={localePath(locale, link.href)}
                 className={cx(styles.mobileLink, isActive(link.href) && styles.mobileActive)}
                 onClick={close}
               >
