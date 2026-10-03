@@ -5,6 +5,7 @@ import styles from "./MapSection.module.css";
 import BookingTrigger from "@/components/booking/BookingTrigger";
 import { infos, mapsSearchUrl, phoneHref } from "@/lib/infos";
 import { closedDaysText } from "@/lib/opening";
+import MapEmbed from "./MapEmbed";
 
 export default function MapSectionFR() {
   return (
@@ -54,14 +55,7 @@ export default function MapSectionFR() {
           </div>
 
           <div className={styles.mapCard}>
-            <iframe
-              className={styles.iframe}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.0!2d1.44!3d43.60!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sToulouse!5e0!3m2!1sfr!2sfr!4v0000000000000"
-              allowFullScreen
-              title="Plan d’accès"
-            />
+            <MapEmbed title="Plan d’accès" label="Afficher la carte" />
             <div className={styles.mapHint}>({infos.address})</div>
           </div>
         </div>
