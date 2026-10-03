@@ -9,6 +9,6 @@ export const heroEN: HeroContent = {
   secondaryCtaLabel: "View the menu",
   secondaryCtaHref: "/menu/soir-weekend",
   note: "Lunch & dinner · Fresh produce · Vegetarian options",
-  bgImage: "/images/salle-bistrot.webp",
+  bgImage: "/images/salle-bouchon.webp",
   bgAlt: "Restaurant interior",
 };

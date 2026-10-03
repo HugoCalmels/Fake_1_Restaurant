@@ -21,6 +21,10 @@ const CONTENT = {
         title: "Données personnelles",
         text: "Les messages envoyés via le formulaire de contact servent uniquement à répondre à la demande. Aucune donnée n’est revendue ni utilisée à des fins commerciales.",
       },
+      {
+        title: "Crédits photo",
+        text: "Photo de la page d’accueil : « Bouchon lyonnais » par Ji-Elle, Wikimedia Commons, licence CC BY-SA 4.0, recadrée et réchauffée. Autres photos : Unsplash.",
+      },
     ],
   },
   en: {
@@ -41,6 +45,10 @@ const CONTENT = {
       {
         title: "Personal data",
         text: "Messages sent through the contact form are only used to answer the request. No data is sold or used for marketing.",
+      },
+      {
+        title: "Photo credits",
+        text: "Home page photo: “Bouchon lyonnais” by Ji-Elle, Wikimedia Commons, CC BY-SA 4.0 license, cropped and warmed. Other photos: Unsplash.",
       },
     ],
   },
