@@ -50,7 +50,7 @@ export default function HeroClient({
   return (
     <section ref={ref} className={styles.hero} id="hero">
       <Image
-        src={content.bgImage || "/images/landing-resto-fake.webp"}
+        src={content.bgImage || "/images/salle-bistrot.webp"}
         alt={content.bgAlt || "Intérieur du restaurant"}
         fill
         priority
