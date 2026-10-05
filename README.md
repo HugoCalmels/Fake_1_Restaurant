@@ -1,36 +1,27 @@
 # Le Faux Bistrot
 
-### 1 - Headless CMS
+Site de restaurant que le gérant modifie lui-même : carte, horaires, photos, textes.
+Refonte d'un vrai restaurant, sous un nom fictif.
 
-Je voulais surtout tester Decap CMS à fond.
+[Site](https://fake-bristot.netlify.app/) · [Captures et présentation](https://hugo-calmels.fr/fr/sites-web/site-dynamique-simple)
 
-Et avoir des screenshots des interfaces coté client, histoire qu'ils comprennent exactement ce qu'il est possible de faire avec Decap CMS.
+## Fonctionnalités
 
-### 2 - Améliorer mon portfolio de projets
-
-Bon d'accord c'est 100% Frontend sans utilisation d'API (le vrai projet fullstack viendra plus tard).
-
-Mais coté petit client c'est le feu.
-
-0€ / mois frontend+headless, et un site modifiable par le client (plein de petits cruds).
-
-Refonte : https://fake-bristot.netlify.app/
-
-Original : https://www.bistrotdeletoile.fr/
+- Contenu modifiable depuis une interface d'administration (CMS headless), sans base de données
+- Carte du midi et du soir, horaires, « ouvert / fermé » calculé en direct, galerie photos
+- FR/EN, pages générées au build, Lighthouse 100
+- Widget de réservation façon Zenchef (factice)
 
 ## Stack
 
-- Next.js
-- TypeScript
-- Decap/Netlify CMS 
+- Next.js 15, React 19, TypeScript, Tailwind CSS 4 — Netlify
+- Decap CMS (contenu en JSON dans le dépôt)
 
-## Objectif
+## Lancer en local
 
-Faire comme si j'avais un client.
+```bash
+npm install
+npm run dev
+```
 
--> Contenu éditable par le client via Decap CMS.
-
--> Faux widget Zenchef pour les réservations, le vrai coute 120e par mois.
-
--> Refonte visuelle du site
-
+Pour l'interface d'administration en local : `npx decap-server`, puis `/admin`.
