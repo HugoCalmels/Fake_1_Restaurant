@@ -32,6 +32,15 @@ const META: Record<"fr" | "en", Metadata> = {
   },
 };
 
+// Les deux langues du site : sans ça, Next ne sait pas qu'il n'y a que "fr" et "en",
+// et rend chaque page à la demande (une fonction serveur à chaque visite, sans cache).
+// Avec, toutes les pages sont générées au build et servies depuis le cache de Netlify.
+// Rien ne dépend de la requête : "ouvert aujourd'hui" se calcule dans le navigateur, et
+// une modification faite dans Decap déclenche un nouveau build.
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }];
+}
+
 export async function generateMetadata({
   params,
 }: {
