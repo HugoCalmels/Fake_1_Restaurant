@@ -19,6 +19,14 @@ export default function Footer({ locale }: { locale: "fr" | "en" }) {
             {locale === "en" ? "Legal notice" : "Mentions légales"}
           </Link>
         </div>
+
+        <div className={styles.credit}>
+          {locale === "en" ? "Built by" : "Développé par"}{" "}
+          <a href="https://hugo-calmels.fr/" target="_blank" rel="noopener">
+            Hugo Calmels
+          </a>
+          {locale === "en" ? ", web developer in Toulouse" : ", développeur web à Toulouse"}
+        </div>
       </div>
     </footer>
   );

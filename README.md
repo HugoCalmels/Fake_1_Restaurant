@@ -3,7 +3,7 @@
 Site de restaurant que le gérant modifie lui-même : carte, horaires, photos, textes.
 Refonte d'un vrai restaurant, sous un nom fictif.
 
-[Site](https://fake-bristot.netlify.app/) · [Captures et présentation](https://hugo-calmels.fr/fr/sites-web/site-dynamique-simple)
+[Site](https://fake-bristot.netlify.app/) · [Captures et présentation](https://hugo-calmels.fr/sites-web/site-dynamique-simple)
 
 ## Fonctionnalités
 
